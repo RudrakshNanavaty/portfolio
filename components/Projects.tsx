@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Publications / Research */}
-        <FadeIn delay={0.2} className="scroll-mt-32 bg-surfaceContainer dark:bg-surfaceContainerHigh/50 rounded-[2.5rem] p-8 md:p-12 border border-transparent hover:border-outlineVariant/20 transition-colors" id="publications">
+        <FadeIn delay={0.2} className="scroll-mt-32 bg-surfaceContainer rounded-[2.5rem] p-8 md:p-12 border border-transparent hover:border-outlineVariant/20 transition-colors" id="publications">
           <div className="flex items-center gap-3 mb-8">
             <FileText className="text-tertiary" size={28} />
             <h3 className="font-display text-2xl md:text-3xl font-bold text-textMain">

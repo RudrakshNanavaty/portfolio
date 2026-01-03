@@ -28,7 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="flex flex-col h-full bg-surfaceContainerLow dark:bg-surfaceContainerHigh border border-transparent hover:border-primary/20 rounded-[2rem] p-8 transition-colors duration-300 group shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
+            className="flex flex-col h-full bg-surfaceContainer hover:border-primary/20 rounded-[2rem] p-8 transition-colors duration-300 group shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
         >
             <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-textMain group-hover:text-primary transition-colors">
@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
             <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((tech) => (
-                    <span key={tech} className="px-3 py-1.5 bg-surfaceContainer dark:bg-surfaceContainer rounded-lg text-sm font-medium text-secondary dark:text-secondary">
+                    <span key={tech} className="px-3 py-1.5 bg-surfaceContainerHighest rounded-lg text-sm font-medium text-textMain">
                         {tech}
                     </span>
                 ))}

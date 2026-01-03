@@ -28,7 +28,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ job, index }) =>
                     <h3 className="text-2xl font-bold text-textMain">{job.company}</h3>
                     <p className="text-lg text-primary font-medium mt-1">{job.role}</p>
                 </div>
-                <span className="px-4 py-1.5 rounded-full bg-surfaceContainer text-textMuted text-sm font-mono border border-outlineVariant/50 self-start">
+                <span className="px-4 py-1.5 rounded-full bg-surfaceContainerHighest text-textMain text-sm font-mono self-start">
                     {job.period}
                 </span>
             </div>

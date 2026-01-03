@@ -78,11 +78,11 @@ const Hero: React.FC = () => {
               Bridging the gap between raw data and production reliability.
             </motion.p>
 
-            <motion.div variants={item} className="flex flex-col sm:flex-row gap-6 items-center md:items-start justify-center md:justify-start">
+            <motion.div variants={item} className="flex flex-col sm:flex-row gap-6 items-center justify-center md:justify-start">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#projects"
+                href="#experience"
                 className="px-8 py-4 bg-primary text-onPrimary rounded-full font-bold text-lg hover:shadow-lg hover:shadow-primary/30 transition-shadow duration-300"
               >
                 See My Work
