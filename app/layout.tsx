@@ -138,8 +138,8 @@ export default function RootLayout({
           __html: `
             :root {
               /* Light Theme - Blue Base */
-              --background: #F8F9FF;
-              --surface: #F8F9FF;
+              --background: #F0F2F5;
+              --surface: #F0F2F5;
               --surface-container-low: #F2F3FA;
               --surface-container: #ECEEF4;
               --surface-container-high: #E6E8EE;
@@ -170,8 +170,8 @@ export default function RootLayout({
         
             .dark {
               /* Dark Theme - Blue Base - Deepened background */
-              --background: #05080F;
-              --surface: #0B0F19;
+              --background: #0F1218;
+              --surface: #151A22;
               --surface-container-low: #11141D;
               --surface-container: #171B26;
               --surface-container-high: #1D222F;
@@ -242,6 +242,7 @@ export default function RootLayout({
             "image": "https://rudrakshnanavaty.com/profile.png"
           })
         }} />
+
       </head>
       <body>
         {children}
