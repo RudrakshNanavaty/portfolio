@@ -26,7 +26,7 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({ ach, index }) 
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 + (index * 0.1), duration: 0.5 }}
-            className="flex flex-col md:flex-row md:items-center justify-between gap-4 py-4 bg-surfaceContainerHigh rounded-xl hover:bg-surfaceContainerHighest px-4 -mx-4 transition-colors"
+            className="flex flex-col md:flex-row md:items-center justify-between gap-4 py-4 bg-surfaceContainerHigh rounded-xl hover:bg-surfaceContainerHighest px-4 mx-4 transition-colors"
         >
             <div>
                 <h4 className="text-xl font-bold text-textMain mb-2">{ach.title}</h4>
