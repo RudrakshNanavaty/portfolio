@@ -1,0 +1,23 @@
+# Rudraksh Nanavaty - Portfolio
+
+## Summary
+Rudraksh Nanavaty is a Computer Engineering student and Software Engineer specializing in Backend Systems and Artificial Intelligence. This portfolio showcases his projects, skills, and professional experience.
+
+## Key Information
+- **Role**: Backend & AI Engineer
+- **Education**: Computer Engineering Student
+- **Focus**: Scalable backend systems, AI/ML models, Full-stack development.
+
+## Skills
+- **Languages**: Python, TypeScript, Java, C++, SQL.
+- **Backend**: Node.js, Express, Fastify, Django, PostgreSQL, MongoDB, Redis.
+- **AI/ML**: PyTorch, TensorFlow, Scikit-learn, LangChain.
+- **DevOps**: Docker, Kubernetes, AWS, CI/CD.
+
+## Top Projects
+1. **Portfolio Website**: A modern, responsive personal portfolio built with React, Vite, and Tailwind CSS.
+2. [Check the projects section on the site for the most up-to-date list]
+
+## Contact
+- **LinkedIn**: [Rudraksh Nanavaty](https://linkedin.com/in/rudraksh-nanavaty)
+- **GitHub**: [rudraksh-nanavaty](https://github.com/rudraksh-nanavaty)
