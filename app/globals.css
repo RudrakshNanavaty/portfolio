@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-background: var(--background);
+    --color-surface: var(--surface);
+    --color-surfaceContainerLow: var(--surface-container-low);
+    --color-surfaceContainer: var(--surface-container);
+    --color-surfaceContainerHigh: var(--surface-container-high);
+    --color-surfaceContainerHighest: var(--surface-container-highest);
+
+    --color-primary: var(--primary);
+    --color-onPrimary: var(--on-primary);
+    --color-primaryContainer: var(--primary-container);
+    --color-onPrimaryContainer: var(--on-primary-container);
+
+    --color-secondary: var(--secondary);
+    --color-onSecondary: var(--on-secondary);
+    --color-secondaryContainer: var(--secondary-container);
+    --color-onSecondaryContainer: var(--on-secondary-container);
+
+    --color-tertiary: var(--tertiary);
+
+    --color-outline: var(--outline);
+    --color-outlineVariant: var(--outline-variant);
+
+    --color-textMain: var(--text-main);
+    --color-textMuted: var(--text-muted);
+
+    --font-sans: var(--font-inter), sans-serif;
+    --font-display: var(--font-space-grotesk), sans-serif;
+
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-3xl: 1.75rem;
+    --radius-4xl: 2rem;
+
+    --animate-blob: blob 20s infinite;
+
+    @keyframes blob {
+        0% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+            transform: translate(30px, -50px) scale(1.1);
+        }
+
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+    }
+}
+
+:root {
+    /* Light Theme - Blue Base */
+    --background: #F0F2F5;
+    --surface: #F0F2F5;
+    --surface-container-low: #F2F3FA;
+    --surface-container: #ECEEF4;
+    --surface-container-high: #E6E8EE;
+    --surface-container-highest: #E0E2E8;
+
+    --primary: #2563EB;
+    /* Blue 600 */
+    --on-primary: #FFFFFF;
+    --primary-container: #D7E3FF;
+    --on-primary-container: #001B3F;
+
+    --secondary: #577C8E;
+    /* Muted Slate/Cyan */
+    --on-secondary: #FFFFFF;
+    --secondary-container: #CEE5FF;
+    /* Light Cyan */
+    --on-secondary-container: #001D32;
+
+    --tertiary: #607D8B;
+    /* Grey Blue */
+
+    --outline: #74777F;
+    --outline-variant: #C4C6D0;
+
+    --text-main: #191C20;
+    --text-muted: #43474E;
+}
+
+.dark {
+    /* Dark Theme - Blue Base - Deepened background */
+    --background: #0F1218;
+    --surface: #151A22;
+    --surface-container-low: #11141D;
+    --surface-container: #171B26;
+    --surface-container-high: #1D222F;
+    --surface-container-highest: #282E3E;
+
+    --primary: #A8C7FA;
+    --on-primary: #002F65;
+    --primary-container: #00478F;
+    --on-primary-container: #D7E3FF;
+
+    --secondary: #7CC5EB;
+    --on-secondary: #003348;
+    --secondary-container: #004B67;
+    --on-secondary-container: #C3E7FF;
+
+    --tertiary: #ADC6FF;
+
+    --outline: #8D9199;
+    --outline-variant: #43474E;
+
+    --text-main: #E2E2E6;
+    --text-muted: #C4C6D0;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--outline-variant);
+    border-radius: 5px;
+    border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--outline);
+}
+
+.text-balance {
+    text-wrap: balance;
+}

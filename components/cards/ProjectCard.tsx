@@ -28,7 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
             whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            className="flex flex-col h-full bg-surfaceContainer hover:border-primary/20 rounded-[2rem] p-8 transition-colors duration-300 group shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
+            className="flex flex-col h-full bg-surfaceContainer hover:border-primary/20 rounded-4xl p-8 transition-colors duration-300 group shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
         >
             <div className="flex justify-between items-start mb-6">
                 <h3 className="text-2xl font-bold text-textMain group-hover:text-primary transition-colors">
@@ -48,7 +48,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 </div>
             </div>
 
-            <p className="text-textMuted text-lg leading-relaxed mb-8 flex-grow">
+            <p className="text-textMuted text-lg leading-relaxed mb-8 grow">
                 {project.description}
             </p>
 

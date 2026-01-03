@@ -24,7 +24,7 @@ export const SkillGroup: React.FC<SkillGroupProps> = ({ category, items, delay =
                 {items.map((skill) => (
                     <span
                         key={skill}
-                        className="px-4 py-2 rounded-xl bg-surfaceContainerHigh border border-outlineVariant/50 dark:border-transparent text-textMain font-medium text-sm hover:border-primary hover:text-primary transition-colors cursor-default select-none"
+                        className="px-4 py-2 rounded-xl bg-surfaceContainerHigh text-textMain font-medium text-sm hover:border-primary hover:text-primary transition-colors cursor-default select-none"
                     >
                         {skill}
                     </span>
