@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { LuMenu, LuX, LuSun, LuMoon } from 'react-icons/lu';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_ITEMS = [
@@ -15,26 +16,21 @@ const NAV_ITEMS = [
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const { setTheme, theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   // Initialize theme based on document class
   useEffect(() => {
-    if (document.documentElement.classList.contains('dark')) {
-      setIsDark(true);
-    } else {
-      setIsDark(false);
-    }
-  }, []);
+    setMounted(true);
+    console.log('Current theme:', theme, 'Resolved:', resolvedTheme);
+  }, [theme, resolvedTheme]);
 
   const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-      setIsDark(false);
+    console.log('Toggling theme. Current resolved:', resolvedTheme);
+    if (resolvedTheme === 'dark') {
+      setTheme('light');
     } else {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-      setIsDark(true);
+      setTheme('dark');
     }
   };
 
@@ -65,10 +61,10 @@ const Navbar: React.FC = () => {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="bg-surfaceContainerLow/80 dark:bg-surfaceContainerHigh/90 backdrop-blur-xl shadow-2xl dark:shadow-black/50 border border-white/20 dark:border-outlineVariant/50 rounded-full pl-6 pr-2 py-2 pointer-events-auto flex items-center justify-between gap-4 md:gap-1 transition-all duration-300 w-full md:w-auto"
+          className="bg-surfaceContainerLow/80 dark:bg-surfaceContainerHigh/90 backdrop-blur-xl shadow-2xl dark:shadow-black/50 border border-white/20 dark:border-outlineVariant/50 rounded-full pl-2 pr-2 py-2 pointer-events-auto flex items-center justify-between gap-4 md:gap-1 transition-all duration-300 w-full md:w-auto"
         >
 
-          <a href="#" className="font-display font-bold text-xl text-textMain mr-4">RN.</a>
+          <a href="#" className="p-3 rounded-full font-display font-bold text-xl text-textMain mr-4 bg-surfaceContainerLow">RN</a>
 
           {/* Desktop Nav Items */}
           <div className="hidden md:flex items-center">
@@ -85,7 +81,7 @@ const Navbar: React.FC = () => {
                   {isActive && (
                     <motion.div
                       layoutId="nav-pill"
-                      className="absolute inset-0 bg-white dark:bg-secondaryContainer rounded-full -z-10 shadow-sm"
+                      className="absolute inset-0 bg-secondaryContainer dark:bg-secondaryContainer rounded-full -z-10 shadow-sm"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -94,7 +90,7 @@ const Navbar: React.FC = () => {
               );
             })}
 
-            <div className="w-px h-6 bg-outlineVariant/30 mx-2" />
+            <div className="w-px h-8 bg-outlineVariant mx-2" />
           </div>
 
           <div className="flex items-center gap-2">
@@ -106,13 +102,14 @@ const Navbar: React.FC = () => {
             >
               <AnimatePresence mode='wait' initial={false}>
                 <motion.div
-                  key={isDark ? 'moon' : 'sun'}
+                  key={mounted && resolvedTheme === 'dark' ? 'moon' : 'sun'}
                   initial={{ y: -20, opacity: 0, rotate: -90 }}
                   animate={{ y: 0, opacity: 1, rotate: 0 }}
                   exit={{ y: 20, opacity: 0, rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {isDark ? <Moon size={20} /> : <Sun size={20} />}
+                  {mounted && (resolvedTheme === 'dark' ? <LuMoon size={20} /> : <LuSun size={20} />)}
+                  {!mounted && <LuMoon size={20} />}
                 </motion.div>
               </AnimatePresence>
             </button>
@@ -122,7 +119,7 @@ const Navbar: React.FC = () => {
               className="md:hidden p-2 text-textMain rounded-full active:bg-surfaceContainerHighest"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <LuX size={24} /> : <LuMenu size={24} />}
             </button>
 
             {/* Desktop Contact Button */}

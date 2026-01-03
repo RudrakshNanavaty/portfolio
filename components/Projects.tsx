@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './Section';
 import { PROJECTS, ACHIEVEMENTS } from '../constants';
-import { Code, FileText } from 'lucide-react';
+import { LuCode, LuFileText } from 'react-icons/lu';
 import { FadeIn } from './ui/FadeIn';
 import { ProjectCard } from './cards/ProjectCard';
 import { PublicationCard } from './cards/PublicationCard';
@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
         <FadeIn>
           <div className="flex items-center gap-4 mb-12">
             <div className="p-3 rounded-2xl bg-primaryContainer text-onPrimaryContainer">
-              <Code size={24} />
+              <LuCode size={24} />
             </div>
             <h2 className="font-display text-4xl font-bold text-textMain">Featured Projects</h2>
           </div>
@@ -26,11 +26,11 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Publications / Research */}
-        <FadeIn delay={0.2} className="scroll-mt-32 bg-surfaceContainer rounded-[2.5rem] p-8 md:p-12 border border-transparent hover:border-outlineVariant/20 transition-colors" id="publications">
+        <FadeIn delay={0.2} className="scroll-mt-32 bg-surfaceContainer dark:bg-surfaceContainer rounded-[2.5rem] p-8 md:p-12 border border-transparent hover:border-outlineVariant/20 transition-colors" id="publications">
           <div className="flex items-center gap-3 mb-8">
-            <FileText className="text-tertiary" size={28} />
+            <LuFileText className="text-tertiary" size={28} />
             <h3 className="font-display text-2xl md:text-3xl font-bold text-textMain">
-              Publications & Research
+              Academic Publications
             </h3>
           </div>
 

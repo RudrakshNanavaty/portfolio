@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { LuArrowRight } from 'react-icons/lu';
 import { motion } from 'framer-motion';
 
 interface BlogProps {
@@ -28,7 +28,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1.0] }}
             whileHover={{ y: -8, scale: 1.01, transition: { duration: 0.3 } }}
-            className="group flex flex-col justify-between p-8 rounded-[2rem] bg-surfaceContainerLow dark:bg-surfaceContainerHigh border border-transparent hover:border-primary/20 relative overflow-hidden h-full min-h-[340px] shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
+            className="group flex flex-col justify-between p-8 rounded-4xl bg-surfaceContainerLow dark:bg-surfaceContainerHigh border border-transparent hover:border-primary/20 relative overflow-hidden h-full min-h-[340px] shadow-sm hover:shadow-xl dark:hover:shadow-black/50"
         >
             {/* Background Image Logic */}
             {blog.image ? (
@@ -39,7 +39,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Strong gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/40 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/30 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/30 transition-colors duration-500" />
                 </div>
             ) : (
                 /* Default Decorative Background for non-image blogs */
@@ -65,7 +65,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
                     {blog.title}
                 </h3>
 
-                <p className={`text-lg leading-relaxed mb-8 flex-grow ${blog.image
+                <p className={`text-lg leading-relaxed mb-8 grow ${blog.image
                     ? 'text-gray-200 drop-shadow-sm font-medium'
                     : 'text-textMuted'
                     }`}>
@@ -76,7 +76,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
                     ? 'border-white/20 text-white'
                     : 'border-outlineVariant/20 text-primary'
                     }`}>
-                    Read on Medium <ArrowRight size={16} className="ml-2" />
+                    Read on Medium <LuArrowRight size={16} className="ml-2" />
                 </div>
             </div>
         </motion.a>

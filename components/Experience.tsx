@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './Section';
 import { EXPERIENCE } from '../constants';
-import { Briefcase } from 'lucide-react';
+import { LuBriefcase } from 'react-icons/lu';
 import { FadeIn } from './ui/FadeIn';
 import { ExperienceCard } from './cards/ExperienceCard';
 
@@ -12,7 +12,7 @@ const Experience: React.FC = () => {
         <FadeIn>
           <div className="flex items-center gap-4 mb-12">
             <div className="p-3 rounded-2xl bg-secondaryContainer text-onSecondaryContainer">
-              <Briefcase size={24} />
+              <LuBriefcase size={24} />
             </div>
             <h2 className="font-display text-4xl font-bold text-textMain">Experience</h2>
           </div>

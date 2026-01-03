@@ -1,27 +1,13 @@
-import React from 'react';
 import { ExperienceItem, ProjectItem, SkillCategory, AchievementItem, BlogItem } from './types';
-import { Github, Linkedin, Mail, GraduationCap } from 'lucide-react';
-
-// Custom Medium Icon
-const MediumIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="currentColor" 
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
-    <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-  </svg>
-);
+import { LuMail } from "react-icons/lu";
+import { SiGithub, SiLinkedin, SiMedium, SiGooglescholar } from "react-icons/si";
 
 export const SOCIAL_LINKS = [
-  { icon: <Mail size={20} />, url: "mailto:rudrakshnanavaty@gmail.com", label: "Email" },
-  { icon: <Github size={20} />, url: "https://github.com/RudrakshNanavaty", label: "GitHub" },
-  { icon: <Linkedin size={20} />, url: "https://linkedin.com/in/RudrakshNanavaty", label: "LinkedIn" },
-  { icon: <MediumIcon size={20} />, url: "https://medium.com/@RudrakshNanavaty", label: "Medium" },
-  { icon: <GraduationCap size={20} />, url: "https://scholar.google.com/citations?user=p32ldl8AAAAJ&hl=en", label: "Scholar" },
+  { icon: <LuMail size={20} />, url: "mailto:rudrakshnanavaty@gmail.com", label: "Email" },
+  { icon: <SiGithub size={20} />, url: "https://github.com/RudrakshNanavaty", label: "GitHub" },
+  { icon: <SiLinkedin size={20} />, url: "https://linkedin.com/in/RudrakshNanavaty", label: "LinkedIn" },
+  { icon: <SiMedium size={20} />, url: "https://medium.com/@RudrakshNanavaty", label: "Medium" },
+  { icon: <SiGooglescholar size={20} />, url: "https://scholar.google.com/citations?user=p32ldl8AAAAJ&hl=en", label: "Scholar" },
 ];
 
 export const EXPERIENCE: ExperienceItem[] = [
@@ -75,7 +61,7 @@ export const PROJECTS: ProjectItem[] = [
     tech: ["ReactJS", "Go", "JavaScript"],
     description: "Interactive simulations for operating system scheduling and concurrency problems, including a visualization of the Dining Philosophers problem with deadlock prevention.",
     links: { github: "#" }
-  }
+  },
 ];
 
 export const SKILLS: SkillCategory[] = [
@@ -99,8 +85,8 @@ export const SKILLS: SkillCategory[] = [
 
 export const ACHIEVEMENTS: AchievementItem[] = [
   {
-    title: "Stanford Geothermal Workshop",
-    description: "Presented solo-authored academic paper as one of the youngest speakers at the prestigious 2024 workshop.",
+    title: "Exploring Autoencoders and XGBoost for Predictive Maintenance in Geothermal Power Plants",
+    description: "Presented solo-authored paper as the youngest speaker at the 2024 Stanford Geothermal Workshop.",
     links: [{ label: "View Publication", url: "https://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf" }]
   },
   {
@@ -136,9 +122,7 @@ export const BLOGS: BlogItem[] = [
   },
   {
     title: "Amazon Shopping — The Computer Engineer Way",
-    date: "Nov 26, 2023",
     description: "Because I'm lazy 🥱",
-    claps: 2,
     url: "https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1",
     image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*elzkZ3Uow74cichb",
   }

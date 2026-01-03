@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './Section';
 import { SKILLS } from '../constants';
-import { Cpu } from 'lucide-react';
+import { LuCpu } from 'react-icons/lu';
 import { FadeIn } from './ui/FadeIn';
 import { SkillGroup } from './cards/SkillGroup';
 
@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
         <FadeIn>
           <div className="flex items-center gap-4 mb-12">
             <div className="p-3 rounded-2xl bg-tertiary/20 text-tertiary">
-              <Cpu size={24} />
+              <LuCpu size={24} />
             </div>
             <h2 className="font-display text-4xl font-bold text-textMain">Technical Arsenal</h2>
           </div>

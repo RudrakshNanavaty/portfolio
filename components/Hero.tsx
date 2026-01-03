@@ -1,8 +1,9 @@
 "use client";
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { LuArrowDown } from 'react-icons/lu';
 import { SOCIAL_LINKS } from '../constants';
+import { Tooltip } from './ui/Tooltip';
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -52,7 +53,7 @@ const Hero: React.FC = () => {
             className="flex-1 text-center md:text-left"
           >
             <motion.div variants={item} className="mb-8 flex justify-center md:justify-start">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-secondaryContainer text-textMain dark:text-onSecondaryContainer text-sm font-medium border border-outlineVariant/20 shadow-sm">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondaryContainer text-textMain dark:text-onSecondaryContainer text-sm font-medium border border-outlineVariant/20 shadow-sm">
                 <span className="relative flex h-2 w-2">
                   {/* Status Dot - Smooth pulse instead of blink */}
                   <motion.span
@@ -68,7 +69,7 @@ const Hero: React.FC = () => {
 
             <motion.h1 variants={item} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-textMain mb-6 text-balance drop-shadow-sm leading-[1.1]">
               Rudraksh <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-[gradient_8s_linear_infinite]">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-primary bg-size-[200%_auto] animate-[gradient_8s_linear_infinite]">
                 Nanavaty
               </span>
             </motion.h1>
@@ -90,17 +91,18 @@ const Hero: React.FC = () => {
 
               <div className="flex gap-2">
                 {SOCIAL_LINKS.map((link, index) => (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -3, backgroundColor: 'var(--surface-container-highest)' }}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 text-textMuted hover:text-primary rounded-full transition-colors duration-300"
-                    aria-label={link.label}
-                  >
-                    {link.icon}
-                  </motion.a>
+                  <Tooltip key={index} content={link.label}>
+                    <motion.a
+                      whileHover={{ y: -3, backgroundColor: 'var(--surface-container-highest)' }}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 text-textMuted hover:text-primary rounded-full transition-colors duration-300"
+                      aria-label={link.label}
+                    >
+                      {link.icon}
+                    </motion.a>
+                  </Tooltip>
                 ))}
               </div>
             </motion.div>
@@ -118,7 +120,7 @@ const Hero: React.FC = () => {
               <motion.div
                 animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-[60px]"
+                className="absolute inset-0 bg-linear-to-tr from-primary/30 to-secondary/30 rounded-full blur-[60px]"
               />
 
               {/* Profile Image */}
@@ -144,7 +146,7 @@ const Hero: React.FC = () => {
         transition={{ delay: 2, duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-textMuted"
       >
-        <ArrowDown />
+        <LuArrowDown />
       </motion.div>
     </section>
   );
