@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/private/', '/api/'],
         },
-        sitemap: 'https://rudrakshnanavaty.com/sitemap.xml',
+        sitemap: 'https://rudraksh.nanavaty.in/sitemap.xml',
     }
 }

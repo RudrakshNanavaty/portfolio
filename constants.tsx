@@ -42,25 +42,25 @@ export const PROJECTS: ProjectItem[] = [
     title: "NotebookLM RAG",
     tech: ["NextJS", "TypeScript", "LangChain", "Pinecone"],
     description: "A sophisticated Retrieval-Augmented Generation chatbot utilizing vector databases for domain-specific query answering with high accuracy. Features robust session persistence and dynamic document ingestion.",
-    links: { demo: "#", github: "#" }
+    links: { demo: "https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view", github: "https://github.com/RudrakshNanavaty/notebook-lm" }
   },
   {
     title: "ChatGPT Tokenizer",
     tech: ["NextJS", "ReactJS", "TypeScript"],
     description: "A manual implementation of the Byte Pair Encoding (BPE) algorithm used in modern LLMs, visualizing how text is processed into tokens for model consumption.",
-    links: { demo: "#", github: "#" }
+    links: { demo: "https://gpt-tokenizer-sable.vercel.app", github: "https://github.com/RudrakshNanavaty/gpt4-tokenizer" }
   },
   {
     title: "Amazon Price Tracker",
     tech: ["Go", "Python", "Selenium"],
     description: "An automated web scraper engineered with Go routines for concurrent monitoring of product prices across multiple SKUs, delivering real-time alerts.",
-    links: { github: "#", blog: "#" }
+    links: { github: "https://github.com/RudrakshNanavaty/price-tracker", blog: "https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1" }
   },
   {
     title: "Algorithm Visualizers",
     tech: ["ReactJS", "Go", "JavaScript"],
     description: "Interactive simulations for operating system scheduling and concurrency problems, including a visualization of the Dining Philosophers problem with deadlock prevention.",
-    links: { github: "#" }
+    links: {}
   },
 ];
 

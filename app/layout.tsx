@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rudrakshnanavaty.com'),
+  metadataBase: new URL('https://rudraksh.nanavaty.in'),
   alternates: {
     canonical: '/',
   },
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   },
   description: 'Portfolio of Rudraksh Nanavaty, a Computer Engineering student specializing in Backend Systems and AI.',
   keywords: ['Backend Engineer', 'AI Engineer', 'Software Engineer', 'Computer Engineering', 'Portfolio', 'Full Stack Developer', 'Rudraksh Nanavaty'],
-  authors: [{ name: 'Rudraksh Nanavaty', url: 'https://rudrakshnanavaty.com' }],
+  authors: [{ name: 'Rudraksh Nanavaty', url: 'https://rudraksh.nanavaty.in' }],
   creator: 'Rudraksh Nanavaty',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://rudrakshnanavaty.com',
+    url: 'https://rudraksh.nanavaty.in',
     title: 'Rudraksh Nanavaty | Backend & AI Engineer',
     description: 'Portfolio of Rudraksh Nanavaty, a Computer Engineering student specializing in Backend Systems and AI.',
     siteName: 'Rudraksh Nanavaty Portfolio',
@@ -80,14 +80,14 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Rudraksh Nanavaty",
-            "url": "https://rudrakshnanavaty.com",
+            "url": "https://rudraksh.nanavaty.in",
             "jobTitle": "Backend & AI Engineer",
             "sameAs": [
               "https://linkedin.com/in/rudraksh-nanavaty",
               "https://github.com/rudraksh-nanavaty"
             ],
             "knowsAbout": ["Backend Engineering", "Artificial Intelligence", "System Design", "Cloud Computing"],
-            "image": "https://rudrakshnanavaty.com/profile.png"
+            "image": "https://rudraksh.nanavaty.in/profile.png"
           })
         }} />
 
