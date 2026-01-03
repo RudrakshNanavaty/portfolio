@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
@@ -9,7 +10,7 @@ const Hero: React.FC = () => {
     target: ref,
     offset: ["start start", "end start"]
   });
-  
+
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
@@ -26,11 +27,11 @@ const Hero: React.FC = () => {
 
   const item: Variants = {
     hidden: { y: 20, opacity: 0, filter: "blur(5px)" },
-    show: { 
-      y: 0, 
-      opacity: 1, 
+    show: {
+      y: 0,
+      opacity: 1,
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } 
+      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }
     },
   };
 
@@ -42,9 +43,9 @@ const Hero: React.FC = () => {
 
       <motion.div style={{ y, opacity }} className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
-          
+
           {/* Left Column: Text */}
-          <motion.div 
+          <motion.div
             variants={container}
             initial="hidden"
             animate="show"
@@ -54,7 +55,7 @@ const Hero: React.FC = () => {
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-secondaryContainer text-textMain dark:text-onSecondaryContainer text-sm font-medium border border-outlineVariant/20 shadow-sm">
                 <span className="relative flex h-2 w-2">
                   {/* Status Dot - Smooth pulse instead of blink */}
-                  <motion.span 
+                  <motion.span
                     animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute inline-flex h-full w-full rounded-full bg-primary"
@@ -73,12 +74,12 @@ const Hero: React.FC = () => {
             </motion.h1>
 
             <motion.p variants={item} className="text-xl md:text-2xl text-textMuted max-w-2xl leading-relaxed mb-10 text-balance mx-auto md:mx-0">
-              I architect scalable backend systems and deploy AI agents that solve real problems. 
+              I architect scalable backend systems and deploy AI agents that solve real problems.
               Bridging the gap between raw data and production reliability.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-6 items-center md:items-start justify-center md:justify-start">
-               <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects"
@@ -86,7 +87,7 @@ const Hero: React.FC = () => {
               >
                 See My Work
               </motion.a>
-              
+
               <div className="flex gap-2">
                 {SOCIAL_LINKS.map((link, index) => (
                   <motion.a
@@ -106,7 +107,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           {/* Right Column: Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50, filter: "blur(20px)" }}
             animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
@@ -114,16 +115,16 @@ const Hero: React.FC = () => {
           >
             <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
               {/* Glow Effect behind image - Smooth Breathing */}
-              <motion.div 
+              <motion.div
                 animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-[60px]" 
+                className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 rounded-full blur-[60px]"
               />
-              
+
               {/* Profile Image */}
-              <img 
-                src="/profile.png" 
-                alt="Rudraksh Nanavaty" 
+              <img
+                src="/profile.png"
+                alt="Rudraksh Nanavaty"
                 className="relative w-full h-full object-cover object-top drop-shadow-2xl z-10 mask-image-gradient"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
@@ -137,7 +138,7 @@ const Hero: React.FC = () => {
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 2, duration: 2, repeat: Infinity }}

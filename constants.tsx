@@ -101,7 +101,7 @@ export const ACHIEVEMENTS: AchievementItem[] = [
   {
     title: "Stanford Geothermal Workshop",
     description: "Presented solo-authored academic paper as one of the youngest speakers at the prestigious 2024 workshop.",
-    links: [{ label: "Read Paper", url: "https://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf" }]
+    links: [{ label: "View Publication", url: "https://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf" }]
   },
   {
     title: "A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction",
