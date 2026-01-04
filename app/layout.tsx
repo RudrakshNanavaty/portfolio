@@ -87,7 +87,7 @@ export default function RootLayout({
               "https://github.com/rudraksh-nanavaty"
             ],
             "knowsAbout": ["Backend Engineering", "Artificial Intelligence", "System Design", "Cloud Computing"],
-            "image": "https://rudraksh.nanavaty.in/profile.png"
+            "image": "https://rudraksh.nanavaty.in/profile.webp"
           })
         }} />
 

@@ -38,10 +38,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="about" ref={ref} className="min-h-screen flex items-center pt-20 relative overflow-hidden">
-      {/* Background Gradients */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen dark:mix-blend-lighten animate-blob opacity-60 pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[100px] mix-blend-screen dark:mix-blend-lighten animate-blob animation-delay-2000 opacity-60 pointer-events-none" />
-
       <motion.div style={{ y, opacity }} className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
 
@@ -76,7 +72,6 @@ const Hero: React.FC = () => {
 
             <motion.p variants={item} className="text-xl md:text-2xl text-textMuted max-w-2xl leading-relaxed mb-10 text-balance mx-auto md:mx-0">
               I architect scalable backend systems and deploy AI agents that solve real problems.
-              Bridging the gap between raw data and production reliability.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-6 items-center justify-center md:justify-start">
@@ -116,18 +111,11 @@ const Hero: React.FC = () => {
             className="flex-1 relative flex justify-center md:justify-end"
           >
             <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
-              {/* Glow Effect behind image - Smooth Breathing */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-linear-to-tr from-primary/30 to-secondary/30 rounded-full blur-[60px]"
-              />
-
               {/* Profile Image */}
               <img
-                src="/profile.png"
+                src="/profile.webp"
                 alt="Rudraksh Nanavaty"
-                className="relative w-full h-full object-cover object-top drop-shadow-2xl z-10 mask-image-gradient"
+                className="relative w-full h-full object-cover drop-shadow-2xl z-10 mask-image-gradient"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'

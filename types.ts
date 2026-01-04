@@ -8,6 +8,7 @@ export interface ExperienceItem {
   role: string;
   period: string;
   description: string[];
+  logo?: string;
 }
 
 export interface ProjectItem {
@@ -20,6 +21,7 @@ export interface ProjectItem {
     blog?: string;
     paper?: string;
   };
+  image?: string;
 }
 
 export interface SkillCategory {
@@ -31,6 +33,7 @@ export interface AchievementItem {
   title: string;
   description: string;
   links: Link[];
+  image?: string;
 }
 
 export interface BlogItem {

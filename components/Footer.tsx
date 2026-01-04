@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from './Section';
-import { LuMail } from 'react-icons/lu';
-import { SOCIAL_LINKS } from '../constants';
+import { LuCalendar } from 'react-icons/lu';
+import { SOCIAL_LINKS, CALENDLY_URL } from '../constants';
 import { Tooltip } from './ui/Tooltip';
 
 const Footer: React.FC = () => {
@@ -15,15 +15,15 @@ const Footer: React.FC = () => {
           Always open to discussing new backend architectures, AI agents, or just geek out over the latest tech.
         </p>
 
-        <Tooltip content="rudrakshnanavaty@gmail.com">
+        <Tooltip content="Schedule a call">
           <a
-            href="mailto:rudrakshnanavaty@gmail.com"
+            href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-10 py-5 bg-primaryContainer text-onPrimaryContainer rounded-full font-bold text-lg hover:brightness-110 transition-transform duration-300 hover:scale-105"
           >
-            <LuMail size={22} />
-            Send me an Email
+            <LuCalendar size={22} />
+            Book a Call
           </a>
         </Tooltip>
 
