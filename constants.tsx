@@ -23,7 +23,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       "Shipped end-to-end billing with Stripe. Subscriptions, metered usage, auto-reconciliation, the works.",
       "Created agent-to-agent eval framework for automated QA. Cut release cycles from weeks to days by catching bad prompts early.",
       "Parallelized voice-agent testing with concurrent Twilio calls. Test throughput x4, regression suite from hours to minutes.",
-      "Integrated Langfuse for full observability—traces, latency metrics, cost tracking—to debug bottlenecks and optimize model routing."
+      "Integrated Langfuse for full observability. Traces, latency metrics, and cost tracking to debug bottlenecks and optimize model routing."
     ],
     logo: "/firstpeak.webp"
   },
