@@ -3,7 +3,7 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import React from 'react';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ['latin'],
