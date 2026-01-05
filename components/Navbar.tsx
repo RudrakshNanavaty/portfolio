@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { LuMenu, LuX, LuSun, LuMoon } from 'react-icons/lu';
+import { LuMenu, LuX, LuSun, LuMoon, LuMonitor } from 'react-icons/lu';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RESUME_URL, CALENDLY_URL } from '../constants';
 
@@ -28,11 +28,12 @@ const Navbar: React.FC = () => {
   }, [theme, resolvedTheme]);
 
   const toggleTheme = () => {
-    console.log('Toggling theme. Current resolved:', resolvedTheme);
-    if (resolvedTheme === 'dark') {
+    if (theme === 'system') {
+      setTheme('dark');
+    } else if (theme === 'dark') {
       setTheme('light');
     } else {
-      setTheme('dark');
+      setTheme('system');
     }
   };
 
@@ -113,14 +114,18 @@ const Navbar: React.FC = () => {
             >
               <AnimatePresence mode='wait' initial={false}>
                 <motion.div
-                  key={mounted && resolvedTheme === 'dark' ? 'moon' : 'sun'}
+                  key={mounted ? theme : 'loading'}
                   initial={{ y: -20, opacity: 0, rotate: -90 }}
                   animate={{ y: 0, opacity: 1, rotate: 0 }}
                   exit={{ y: 20, opacity: 0, rotate: 90 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {mounted && (resolvedTheme === 'dark' ? <LuMoon size={20} /> : <LuSun size={20} />)}
-                  {!mounted && <LuMoon size={20} />}
+                  {mounted && (
+                    theme === 'system' ? <LuMonitor size={20} /> :
+                    theme === 'dark' ? <LuMoon size={20} /> :
+                    <LuSun size={20} />
+                  )}
+                  {!mounted && <LuMonitor size={20} />}
                 </motion.div>
               </AnimatePresence>
             </button>
