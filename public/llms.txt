@@ -1,23 +1,103 @@
-# Rudraksh Nanavaty - Portfolio
+# Rudraksh Nanavaty
 
-## Summary
-Rudraksh Nanavaty is a Computer Engineering student and Software Engineer specializing in Backend Systems and Artificial Intelligence. This portfolio showcases his projects, skills, and professional experience.
+> Software Engineer specializing in Backend Systems and Artificial Intelligence.
+> Focused on scalable backend systems, AI/ML models, and Full-stack development.
 
-## Key Information
-- **Role**: Backend & AI Engineer
-- **Education**: Computer Engineering Student
-- **Focus**: Scalable backend systems, AI/ML models, Full-stack development.
+## Contact & Links
+- **Email**: [rudrakshnanavaty@gmail.com](mailto:rudrakshnanavaty@gmail.com)
+- **GitHub**: [RudrakshNanavaty](https://github.com/RudrakshNanavaty)
+- **LinkedIn**: [RudrakshNanavaty](https://linkedin.com/in/RudrakshNanavaty)
+- **Medium**: [@RudrakshNanavaty](https://medium.com/@RudrakshNanavaty)
+- **Scholar**: [Google Scholar](https://scholar.google.com/citations?user=p32ldl8AAAAJ&hl=en)
+- **Resume**: [resume.pdf](https://rudraksh.nanavaty.in/resume.pdf)
+- **Calendly**: [Quick Chat](https://calendly.com/rudrakshnanavaty/quick-chat)
+
+## Experience
+
+### FirstPeak.ai
+**Role**: Back End Developer
+**Period**: Sep 2025 - Present
+- Built Python backend services for a production conversational AI platform handling voice + WhatsApp traffic.
+- Shipped end-to-end billing with Stripe. Subscriptions, metered usage, auto-reconciliation, the works.
+- Created agent-to-agent eval framework for automated QA. Cut release cycles from weeks to days by catching bad prompts early.
+- Parallelized voice-agent testing with concurrent Twilio calls. Test throughput x4, regression suite from hours to minutes.
+- Integrated Langfuse for full observability. Traces, latency metrics, and cost tracking to debug bottlenecks and optimize model routing.
+
+### New Engen
+**Role**: Back End Developer
+**Period**: Mar 2024 - May 2025
+- Migrated a legacy monolith to microservices using TypeScript and Python, because nobody likes spaghetti code.
+- Built GraphQL APIs for client dashboards holding <100ms p95 even at peak.
+- Shipped a fault-tolerant bulk email pipeline with RabbitMQ.
+- Implemented idempotent job processing to handle retries gracefully and avoid duplicate data chaos.
+- Set strict performance baselines and optimized async execution to hit sub-200ms targets across the board.
+
+## Projects
+
+### NotebookLM RAG
+*Tech Stack: NextJS, TypeScript, LangChain, Pinecone*
+Built a RAG chatbot that understands your docs.
+- [Demo](https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view)
+- [GitHub](https://github.com/RudrakshNanavaty/notebook-lm)
+
+### ChatGPT Tokenizer
+*Tech Stack: NextJS, ReactJS, TypeScript*
+Manual BPE tokenizer implementation to understand how GPT chews text into tokens.
+- [Demo](https://gpt-tokenizer-sable.vercel.app)
+- [GitHub](https://github.com/RudrakshNanavaty/gpt4-tokenizer)
+
+### Amazon Price Tracker
+*Tech Stack: Go, Python, Selenium*
+Go routines scraping multiple SKUs concurrently. Real-time alerts when prices drop.
+- [GitHub](https://github.com/RudrakshNanavaty/price-tracker)
+- [Blog](https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1)
+
+### Algorithm Visualizers
+*Tech Stack: ReactJS, Go, JavaScript*
+Interactive sims for OS scheduling + concurrency. Includes Dining Philosophers with deadlock avoidance.
 
 ## Skills
-- **Languages**: Python, TypeScript, Java, C++, SQL.
-- **Backend**: Node.js, Express, Fastify, Django, PostgreSQL, MongoDB, Redis.
-- **AI/ML**: PyTorch, TensorFlow, Scikit-learn, LangChain.
-- **DevOps**: Docker, Kubernetes, AWS, CI/CD.
 
-## Top Projects
-1. **Portfolio Website**: A modern, responsive personal portfolio built with React, Vite, and Tailwind CSS.
-2. [Check the projects section on the site for the most up-to-date list]
+### AI & LLMs
+RAG, LangChain, Pinecone, Prompt Engineering, Vector DBs, Langfuse
 
-## Contact
-- **LinkedIn**: [Rudraksh Nanavaty](https://linkedin.com/in/rudraksh-nanavaty)
-- **GitHub**: [rudraksh-nanavaty](https://github.com/rudraksh-nanavaty)
+### Backend Engineering
+Python, Go, FastAPI, ExpressJS, GraphQL, tRPC, RabbitMQ
+
+### Frontend & Full Stack
+TypeScript, JavaScript, ReactJS, NextJS, Redux Toolkit, TailwindCSS
+
+### Infrastructure & Data
+PostgreSQL, MongoDB, Redis, Docker, AWS, GCP, Linux
+
+## Academic Achievements & Publications
+
+### Exploring Autoencoders and XGBoost for Predictive Maintenance in Geothermal Power Plants
+Presented solo-authored paper as the youngest speaker at the 2024 Stanford Geothermal Workshop.
+- [View Publication](https://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf)
+
+### A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction
+Archives of Computational Methods in Engineering, Springer Nature (Impact Factor 12.1)
+- [View Publication](https://doi.org/10.1007/s11831-023-09994-x)
+
+### The Potential of Big Data and Machine Learning for Ground Water Quality Assessment and Prediction
+Archives of Computational Methods in Engineering, Springer Nature (Impact Factor 12.1)
+- [View Publication](https://doi.org/10.1007/s11831-024-10156-w)
+
+## Blog Posts
+
+### Clean Architecture
+Because nothing stands the test of time ⏱️
+- [Read on Medium](https://medium.com/@rudrakshnanavaty/clean-architecture-7c1b3b4cb181)
+
+### Building a Web Server using GO and Gin
+Because PHP is a Dinosaur 🦖
+- [Read on Medium](https://medium.com/@rudrakshnanavaty/building-a-web-server-using-go-and-gin-39150b8304ee)
+
+### Implementing Clean Architecture in GO
+Because why not? 😉
+- [Read on Medium](https://medium.com/@rudrakshnanavaty/implementing-clean-architecture-in-go-5f06dd8c1596)
+
+### Amazon Shopping — The Computer Engineer Way
+Because I'm lazy 🥱
+- [Read on Medium](https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1)

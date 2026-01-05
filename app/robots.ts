@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: '*',
-            allow: '/',
+            allow: ['/', '/llms.txt'],
             disallow: ['/private/', '/api/'],
         },
         sitemap: 'https://rudraksh.nanavaty.in/sitemap.xml',

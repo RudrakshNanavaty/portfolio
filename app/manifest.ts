@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
     return {
         name: 'Rudraksh Nanavaty Portfolio',
         short_name: 'Rudraksh',
-        description: 'Portfolio of Rudraksh Nanavaty, a Computer Engineering student specializing in Backend Systems and AI.',
+        description: 'Portfolio of Rudraksh Nanavaty, a Software Engineer specializing in Backend Systems and AI.',
         start_url: '/',
         display: 'standalone',
         background_color: '#F8F9FF',
