@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import React from 'react';
 import { ThemeProvider } from '@/components/theme-provider';
+import { PostHogProvider } from '@/components/providers/posthog-provider';
 import './globals.css';
 import { Analytics } from "@vercel/analytics/react"
 
@@ -91,7 +92,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <PostHogProvider>
+            {children}
+          </PostHogProvider>
         </ThemeProvider>
         <Analytics />
       </body>
