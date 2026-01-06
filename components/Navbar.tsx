@@ -134,6 +134,7 @@ const Navbar: React.FC = () => {
             <button
               className="md:hidden p-2 text-textMain rounded-full active:bg-surfaceContainerHighest"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {mobileMenuOpen ? <LuX size={24} /> : <LuMenu size={24} />}
             </button>

@@ -11,7 +11,7 @@ export const size = {
   height: 630,
 };
 
-export const contentType = 'image/png';
+export const contentType = 'image/webp';
 
 export default async function Image() {
   // Font loading from local filesystem

@@ -41,7 +41,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ job, index }) =>
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                         <div>
                             <h3 className="text-2xl font-bold text-textMain">{job.company}</h3>
-                            <p className="text-lg text-primary font-medium mt-1">{job.role}</p>
+                            <p className="text-lg text-onPrimaryContainer font-medium mt-1">{job.role}</p>
                         </div>
                         <span className="px-4 py-1.5 rounded-full bg-surfaceContainer text-textMain text-sm font-mono self-start whitespace-nowrap">
                             {job.period}

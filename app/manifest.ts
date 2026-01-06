@@ -16,14 +16,14 @@ export default function manifest(): MetadataRoute.Manifest {
                 type: 'image/x-icon',
             },
             {
-                src: '/android-chrome-192x192.png',
+                src: '/android-chrome-192x192.webp',
                 sizes: '192x192',
-                type: 'image/png',
+                type: 'image/webp',
             },
             {
-                src: '/android-chrome-512x512.png',
+                src: '/android-chrome-512x512.webp',
                 sizes: '512x512',
-                type: 'image/png',
+                type: 'image/webp',
             },
         ],
     }

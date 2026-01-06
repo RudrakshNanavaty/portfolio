@@ -2,6 +2,7 @@
 import React from 'react';
 import { LuArrowRight } from 'react-icons/lu';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface BlogProps {
     title: string;
@@ -33,10 +34,12 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
             {/* Background Image Logic */}
             {blog.image ? (
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src={blog.image}
                         alt={blog.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Strong gradient overlay for text readability */}
                     <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/70 to-black/40 group-hover:from-black/90 group-hover:via-black/60 group-hover:to-black/30 transition-colors duration-500" />

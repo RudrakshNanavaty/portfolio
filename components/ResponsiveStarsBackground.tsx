@@ -24,7 +24,7 @@ export default function ResponsiveStarsBackground() {
   return (
     <GravityStarsBackground
       starsCount={starsCount}
-      className="fixed inset-0 -z-10 flex items-center justify-center bg-background transition-colors duration-500"
+      className="fixed inset-0 -z-10"
     />
   );
 }

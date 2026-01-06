@@ -1,13 +1,11 @@
 import { ExperienceItem, ProjectItem, SkillCategory, AchievementItem, BlogItem } from './types';
-import { LuMail } from "react-icons/lu";
-import { SiGithub, SiLinkedin, SiMedium, SiGooglescholar } from "react-icons/si";
 
 export const SOCIAL_LINKS = [
-  { icon: <LuMail size={20} />, url: "mailto:rudrakshnanavaty@gmail.com", label: "Email" },
-  { icon: <SiGithub size={20} />, url: "https://github.com/RudrakshNanavaty", label: "GitHub" },
-  { icon: <SiLinkedin size={20} />, url: "https://linkedin.com/in/RudrakshNanavaty", label: "LinkedIn" },
-  { icon: <SiMedium size={20} />, url: "https://medium.com/@RudrakshNanavaty", label: "Medium" },
-  { icon: <SiGooglescholar size={20} />, url: "https://scholar.google.com/citations?user=p32ldl8AAAAJ&hl=en", label: "Scholar" },
+  { id: "email", url: "mailto:rudrakshnanavaty@gmail.com", label: "Email" },
+  { id: "github", url: "https://github.com/RudrakshNanavaty", label: "GitHub" },
+  { id: "linkedin", url: "https://linkedin.com/in/RudrakshNanavaty", label: "LinkedIn" },
+  { id: "medium", url: "https://medium.com/@RudrakshNanavaty", label: "Medium" },
+  { id: "scholar", url: "https://scholar.google.com/citations?user=p32ldl8AAAAJ&hl=en", label: "Scholar" },
 ];
 
 export const RESUME_URL = "/resume.pdf";
@@ -45,20 +43,18 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
-    title: "NotebookLM RAG",
-    tech: ["NextJS", "TypeScript", "LangChain", "Pinecone"],
-    description: "Built a RAG chatbot that understands your docs.",
-    links: { demo: "https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view", github: "https://github.com/RudrakshNanavaty/notebook-lm" },
-  },
-
-  {
     title: "ChatGPT Tokenizer",
     tech: ["NextJS", "ReactJS", "TypeScript"],
     description: "Manual BPE tokenizer implementation to understand how GPT chews text into tokens.",
     links: { demo: "https://gpt-tokenizer-sable.vercel.app", github: "https://github.com/RudrakshNanavaty/gpt4-tokenizer" },
     image: undefined
   },
-
+  {
+    title: "NotebookLM RAG",
+    tech: ["NextJS", "TypeScript", "LangChain", "Pinecone"],
+    description: "Built a RAG chatbot that understands your docs.",
+    links: { demo: "https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view", github: "https://github.com/RudrakshNanavaty/notebook-lm" },
+  },
   {
     title: "Amazon Price Tracker",
     tech: ["Go", "Python", "Selenium"],

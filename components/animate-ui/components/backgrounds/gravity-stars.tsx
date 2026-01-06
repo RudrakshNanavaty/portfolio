@@ -117,34 +117,25 @@ function GravityStarsBackground({
   }, [initStars, redistributeStars]);
 
   const handlePointerMove = React.useCallback(
-    (e: MouseEvent | TouchEvent) => {
+    (e: React.MouseEvent | React.TouchEvent) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       let clientX = 0;
       let clientY = 0;
       if ('touches' in e) {
-        const t = (e as unknown as TouchEvent).touches[0];
+        const t = e.touches[0];
         if (!t) return;
         clientX = t.clientX;
         clientY = t.clientY;
       } else {
-        clientX = (e as MouseEvent).clientX;
-        clientY = (e as MouseEvent).clientY;
+        clientX = e.clientX;
+        clientY = e.clientY;
       }
       mouseRef.current = { x: clientX - rect.left, y: clientY - rect.top };
     },
     [],
   );
-
-  React.useEffect(() => {
-    window.addEventListener('mousemove', handlePointerMove);
-    window.addEventListener('touchmove', handlePointerMove);
-    return () => {
-      window.removeEventListener('mousemove', handlePointerMove);
-      window.removeEventListener('touchmove', handlePointerMove);
-    };
-  }, [handlePointerMove]);
 
   const updateStars = React.useCallback(() => {
     const w = canvasSize.width;
@@ -320,7 +311,7 @@ function GravityStarsBackground({
   }, [resizeCanvas]);
 
   React.useEffect(() => {
-    if (starsRef.current.length === 0 || starsRef.current.length !== starsCount) {
+    if (starsRef.current.length === 0) {
       initStars(canvasSize.width, canvasSize.height);
     } else {
       starsRef.current.forEach((p) => {
@@ -357,6 +348,8 @@ function GravityStarsBackground({
       ref={containerRef}
       data-slot="gravity-stars-background"
       className={cn('relative size-full overflow-hidden', className)}
+      onMouseMove={(e) => handlePointerMove(e)}
+      onTouchMove={(e) => handlePointerMove(e)}
       {...props}
     >
       <canvas ref={canvasRef} className="block w-full h-full" />

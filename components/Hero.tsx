@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { LuArrowDown } from 'react-icons/lu';
 import ContactLinks from './ContactLinks';
+import Image from 'next/image';
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -62,7 +63,7 @@ const Hero: React.FC = () => {
               </span>
             </motion.div>
 
-            <motion.h1 variants={item} className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-textMain mb-6 text-balance drop-shadow-sm leading-[1.1]">
+            <motion.h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-textMain mb-6 text-balance drop-shadow-sm leading-[1.1]">
               Rudraksh <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-secondary to-primary bg-size-[200%_auto] animate-[gradient_8s_linear_infinite]">
                 Nanavaty
@@ -89,16 +90,17 @@ const Hero: React.FC = () => {
 
           {/* Right Column: Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50, filter: "blur(20px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] }}
             className="flex-1 relative flex justify-center md:justify-end"
           >
             <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
               {/* Profile Image */}
-              <img
+              <Image
                 src="/profile.webp"
                 alt="Rudraksh Nanavaty"
+                width={450}
+                height={450}
+                priority
+                sizes="(max-width: 768px) 100vw, 450px"
                 className="relative w-full h-full object-cover drop-shadow-2xl z-10 mask-image-gradient"
                 style={{
                   maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
@@ -117,7 +119,7 @@ const Hero: React.FC = () => {
         transition={{ delay: 2, duration: 2, repeat: Infinity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-textMuted"
       >
-        <LuArrowDown />
+        <LuArrowDown size={28} />
       </motion.div>
     </section>
   );

@@ -1,6 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Add any specific configuration here
+    transpilePackages: ['react-icons'],
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'miro.medium.com',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
 };
 
 export default nextConfig;
