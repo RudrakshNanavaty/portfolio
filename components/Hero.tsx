@@ -2,8 +2,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { LuArrowDown } from 'react-icons/lu';
-import { SOCIAL_LINKS } from '../constants';
-import { Tooltip } from './ui/Tooltip';
+import ContactLinks from './ContactLinks';
 
 const Hero: React.FC = () => {
   const ref = useRef(null);
@@ -84,22 +83,7 @@ const Hero: React.FC = () => {
                 See My Work
               </motion.a>
 
-              <div className="flex gap-2">
-                {SOCIAL_LINKS.map((link, index) => (
-                  <Tooltip key={index} content={link.label}>
-                    <motion.a
-                      whileHover={{ y: -3, backgroundColor: 'var(--surface-container-highest)' }}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 text-textMuted hover:text-primary rounded-full transition-colors duration-300"
-                      aria-label={link.label}
-                    >
-                      {link.icon}
-                    </motion.a>
-                  </Tooltip>
-                ))}
-              </div>
+              <ContactLinks iconSize={24} />
             </motion.div>
           </motion.div>
 
@@ -123,7 +107,6 @@ const Hero: React.FC = () => {
               />
             </div>
           </motion.div>
-
         </div>
       </motion.div>
 

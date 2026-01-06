@@ -320,7 +320,7 @@ function GravityStarsBackground({
   }, [resizeCanvas]);
 
   React.useEffect(() => {
-    if (starsRef.current.length === 0) {
+    if (starsRef.current.length === 0 || starsRef.current.length !== starsCount) {
       initStars(canvasSize.width, canvasSize.height);
     } else {
       starsRef.current.forEach((p) => {

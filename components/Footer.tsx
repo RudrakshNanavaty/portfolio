@@ -1,7 +1,8 @@
 import React from 'react';
 import Section from './Section';
 import { LuCalendar } from 'react-icons/lu';
-import { SOCIAL_LINKS, CALENDLY_URL } from '../constants';
+import { CALENDLY_URL } from '../constants';
+import ContactLinks from './ContactLinks';
 import { Tooltip } from './ui/Tooltip';
 
 const Footer: React.FC = () => {
@@ -23,25 +24,11 @@ const Footer: React.FC = () => {
             className="inline-flex items-center gap-3 px-10 py-5 bg-primaryContainer text-onPrimaryContainer rounded-full font-bold text-lg hover:brightness-110 transition-transform duration-300 hover:scale-105"
           >
             <LuCalendar size={22} />
-            Book a Call
+            Let&apos;s Chat
           </a>
         </Tooltip>
 
-        <div className="flex justify-center gap-6 mt-16 mb-12">
-          {SOCIAL_LINKS.map((link, index) => (
-            <Tooltip key={index} content={link.label}>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-textMuted hover:text-secondary transition-colors duration-300"
-                aria-label={link.label}
-              >
-                {React.cloneElement(link.icon as any, { size: 28 })}
-              </a>
-            </Tooltip>
-          ))}
-        </div>
+        <ContactLinks iconSize={28} className="flex justify-center gap-6 mt-16 mb-12" />
 
         <div className="text-sm text-outline font-medium">
           <p>© {new Date().getFullYear()} Rudraksh Nanavaty</p>
