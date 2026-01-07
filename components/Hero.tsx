@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
             </motion.h1>
 
             <motion.p variants={item} className="text-xl md:text-2xl text-textMuted max-w-2xl leading-relaxed mb-10 text-balance mx-auto md:mx-0">
-              I architect scalable backend systems and deploy AI agents that solve real problems.
+              Building scalable backend systems and AI agents designed to solve real-world problems.
             </motion.p>
 
             <motion.div variants={item} className="flex flex-col sm:flex-row gap-6 items-center justify-center md:justify-start">
