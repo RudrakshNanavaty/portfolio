@@ -3,6 +3,7 @@ import React from 'react';
 import { SiGithub } from 'react-icons/si';
 import { LuExternalLink } from 'react-icons/lu';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface ProjectLinks {
     github?: string;
@@ -15,6 +16,8 @@ interface ProjectProps {
     tech: string[];
     links: ProjectLinks;
     image?: string;
+    imagePaddingClassName?: string;
+    imageContainerClassName?: string;
 }
 
 interface ProjectCardProps {
@@ -41,17 +44,40 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         >
             <div className="flex flex-col lg:flex-row gap-6 h-full relative z-10 pointer-events-none">
                 <div className="flex flex-col grow">
-                    <div className="flex justify-between items-start mb-6">
-                        <h3 className="text-2xl font-bold text-textMain group-hover:text-primary transition-colors">
-                            {project.title}
-                        </h3>
+                    <div className="flex justify-between items-center mb-6">
+                        <div className="flex items-center gap-4 min-w-0">
+                            {project.image ? (
+                                <div
+                                    className={[
+                                        "shrink-0 w-16 h-16 md:w-20 md:h-20 relative rounded-2xl overflow-hidden",
+                                        "bg-white/90 dark:bg-white/90 ring-1 ring-black/10 dark:ring-black/15 shadow-sm",
+                                        project.imageContainerClassName ?? "",
+                                    ].join(" ")}
+                                >
+                                    <div className={["absolute inset-0", project.imagePaddingClassName ?? "p-2.5 md:p-3.5"].join(" ")}>
+                                        <div className="relative w-full h-full">
+                                            <Image
+                                                src={project.image}
+                                                alt={`${project.title} logo`}
+                                                fill
+                                                className="object-contain"
+                                                sizes="80px"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : null}
+                            <h3 className="text-2xl font-bold text-textMain group-hover:text-primary transition-colors truncate">
+                                {project.title}
+                            </h3>
+                        </div>
                         <div className="flex gap-2 opacity-70 group-hover:opacity-100 transition-opacity pointer-events-auto">
                             {project.links.github && (
-                                <a 
-                                    href={project.links.github} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="p-2 rounded-full hover:bg-surfaceContainer text-textMain hover:text-primary transition-colors relative z-20" 
+                                <a
+                                    href={project.links.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full hover:bg-surfaceContainer text-textMain hover:text-primary transition-colors relative z-20"
                                     aria-label="GitHub"
                                     onClick={(e) => e.stopPropagation()} // Added stopPropagation
                                 >
@@ -59,11 +85,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                                 </a>
                             )}
                             {project.links.demo && (
-                                <a 
-                                    href={project.links.demo} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    className="p-2 rounded-full hover:bg-surfaceContainer text-textMain hover:text-primary transition-colors relative z-20" 
+                                <a
+                                    href={project.links.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 rounded-full hover:bg-surfaceContainer text-textMain hover:text-primary transition-colors relative z-20"
                                     aria-label="Demo"
                                     onClick={(e) => e.stopPropagation()} // Added stopPropagation
                                 >

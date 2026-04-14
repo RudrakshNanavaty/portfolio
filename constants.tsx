@@ -43,31 +43,36 @@ export const EXPERIENCE: ExperienceItem[] = [
 
 export const PROJECTS: ProjectItem[] = [
   {
+    title: "EarningsLens",
+    tech: ["Python", "Gradio", "Reinforcement Learning"],
+    description:
+      "Built an RL environment to predict post-earnings stock movement using earnings call transcripts and official press releases.",
+    links: {
+      demo: "https://huggingface.co/spaces/GalacticTriumvirate/Earning_lens",
+      github: "https://github.com/RudrakshNanavaty/earnings",
+    },
+    image: "/hf-logo.webp",
+  },
+  {
     title: "ChatGPT Tokenizer",
     tech: ["NextJS", "ReactJS", "TypeScript"],
     description: "Manual BPE tokenizer implementation to understand how GPT chews text into tokens.",
     links: { demo: "https://gpt-tokenizer-sable.vercel.app", github: "https://github.com/RudrakshNanavaty/gpt4-tokenizer" },
-    image: undefined
+    image: "/chatgpt-logo.webp",
   },
   {
     title: "NotebookLM RAG",
     tech: ["NextJS", "TypeScript", "LangChain", "Pinecone"],
     description: "Built a RAG chatbot that understands your docs.",
     links: { demo: "https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view", github: "https://github.com/RudrakshNanavaty/notebook-lm" },
+    image: "/notebook-logo.webp",
   },
   {
     title: "Amazon Price Tracker",
     tech: ["Go", "Python", "Selenium"],
     description: "Go routines scraping multiple SKUs concurrently. Real-time alerts when prices drop.",
     links: { github: "https://github.com/RudrakshNanavaty/price-tracker", blog: "https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1" },
-    image: undefined
-  },
-  {
-    title: "Algorithm Visualizers",
-    tech: ["ReactJS", "Go", "JavaScript"],
-    description: "Interactive sims for OS scheduling + concurrency. Includes Dining Philosophers with deadlock avoidance.",
-    links: {},
-    image: 'undefined'
+    image: "/amazon-logo.webp",
   },
 ];
 

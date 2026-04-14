@@ -22,6 +22,8 @@ export interface ProjectItem {
     paper?: string;
   };
   image?: string;
+  imagePaddingClassName?: string;
+  imageContainerClassName?: string;
 }
 
 export interface SkillCategory {
