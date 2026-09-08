@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+body{margin:0}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+html,body{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{display:none;width:0;height:0}
+*{scrollbar-width:none}
+</style>
+</helmet>
+<script src="./image-slot.js"></script>
+<div style="{{rootStyle}}">
+
+<div style="position:fixed;top:20px;right:20px;z-index:50;display:flex;gap:2px;padding:4px;background:var(--card);border:1px solid var(--border);border-radius:100px;box-shadow:0 2px 8px rgba(0,0,0,0.25)">
+  <button onClick="{{setLight}}" style="{{lightBtnStyle}}" aria-label="Light theme">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+  </button>
+  <button onClick="{{setSystem}}" style="{{systemBtnStyle}}" aria-label="System theme">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+  </button>
+  <button onClick="{{setDark}}" style="{{darkBtnStyle}}" aria-label="Dark theme">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"></path></svg>
+  </button>
+</div>
+
+<aside style="{{asideStyle}}">
+  <div style="width:148px;height:148px;flex:none;border-radius:50%;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.25);margin-bottom:24px">
+    <image-slot id="headshot" shape="rect" fit="cover" src="./assets/headshot.jpg" placeholder="Headshot"></image-slot>
+  </div>
+
+  <h1 style="font-size:calc(26px * var(--fs-scale));font-weight:700;margin:0 0 8px;color:var(--text);letter-spacing:0.1px">Rudraksh Nanavaty</h1>
+  <p style="font-size:calc(15.5px * var(--fs-scale));color:var(--text2);margin:0 0 18px;font-weight:500">Software Engineer</p>
+  <p style="font-size:calc(14.5px * var(--fs-scale));line-height:1.65;color:var(--text2);margin:0 0 30px;max-width:240px">Backend-leaning software engineer building AI platforms, APIs and data pipelines.</p>
+
+  <div style="{{contactCardStyle}}">
+    <a href="mailto:rudrakshnanavaty@gmail.com" style="display:flex;align-items:center;gap:10px;font-size:calc(14px * var(--fs-scale));color:var(--text)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m2 6 10 7L22 6"></path></svg>
+      <span style="background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0% 1px;transition:background-size 0.3s ease;padding-bottom:1px" style-hover="background-size:100% 1px">rudrakshnanavaty@gmail.com</span>
+    </a>
+    <a href="tel:+19843822116" style="display:flex;align-items:center;gap:10px;font-size:calc(14px * var(--fs-scale));color:var(--text)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M14.05 2.5a1.9 1.9 0 0 1 1.85 1.5c.15.85.4 1.8.75 2.8a1.9 1.9 0 0 1-.45 1.95l-1.2 1.2a12.5 12.5 0 0 0 5.3 5.3l1.2-1.2a1.9 1.9 0 0 1 1.95-.45c1 .35 1.95.6 2.8.75a1.9 1.9 0 0 1 1.5 1.85v2.6a1.9 1.9 0 0 1-2.05 1.9A17.9 17.9 0 0 1 2.65 4.55 1.9 1.9 0 0 1 4.55 2.5z" transform="translate(-1.5 -1) scale(0.86)"></path></svg>
+      <span style="background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0% 1px;transition:background-size 0.3s ease;padding-bottom:1px" style-hover="background-size:100% 1px">+1 (984) 382-2116</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:10px;font-size:calc(14px * var(--fs-scale));color:var(--text)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      <span>Raleigh, NC, USA</span>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:12px;margin-bottom:26px">
+    <a href="https://github.com/RudrakshNanavaty" target="_blank" rel="noopener" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--pill);border-radius:50%;transition:transform 0.2s ease" style-hover="transform:scale(1.12)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"></path></svg>
+    </a>
+    <a href="https://linkedin.com/in/RudrakshNanavaty" target="_blank" rel="noopener" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--pill);border-radius:50%;transition:transform 0.2s ease" style-hover="transform:scale(1.12)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V8h4v1.5A6 6 0 0 1 16 8Z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href="https://medium.com/@rudrakshnanavaty" target="_blank" rel="noopener" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--pill);border-radius:50%;transition:transform 0.2s ease" style-hover="transform:scale(1.12)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="var(--text)" stroke="none"><circle cx="6" cy="12" r="4.2"></circle><ellipse cx="15" cy="12" rx="3" ry="4.2"></ellipse><ellipse cx="21.2" cy="12" rx="1.4" ry="4"></ellipse></svg>
+    </a>
+    <a href="https://scholar.google.com/citations?user=" target="_blank" rel="noopener" style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:var(--pill);border-radius:50%;transition:transform 0.2s ease" style-hover="transform:scale(1.12)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="var(--text)" stroke="none"><path d="M12 2 1 9l4 2.5V17l7 4 7-4v-5.5L23 9 12 2Zm0 2.4L19.5 9 12 13.6 4.5 9 12 4.4ZM6 13.1l6 3.6 6-3.6v3.2l-6 3.4-6-3.4v-3.2Z"></path></svg>
+    </a>
+  </div>
+
+  <a href="./assets/Rudraksh-Nanavaty-Resume.pdf" download="" style="display:flex;align-items:center;justify-content:center;gap:9px;width:100%;max-width:240px;background:var(--accent);color:var(--accent-text);font-weight:700;font-size:calc(14.5px * var(--fs-scale));padding:13px 16px;border-radius:100px;box-shadow:0 1px 2px rgba(0,0,0,0.2);transition:transform 0.2s ease,box-shadow 0.2s ease" style-hover="transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.28)">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+    Download Resume
+  </a>
+
+  <sc-if value="{{showSidebarSkills}}" hint-placeholder-val="{{true}}">
+  <div style="width:100%;margin-top:34px;text-align:left">
+    <h2 style="font-size:calc(15px * var(--fs-scale));font-weight:700;margin:0 0 4px;color:var(--text);text-align:center;text-transform:uppercase;letter-spacing:0.6px">Skills</h2>
+    <div style="height:1px;background:var(--border);margin:12px 0 18px"></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{skillGroupsSidebar}}" as="grp" hint-placeholder-count="6">
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;justify-content:center">
+            <span style="font-size:calc(13px * var(--fs-scale));color:var(--text2);font-weight:500">{{grp.category}}</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;justify-content:center">
+            <sc-for list="{{grp.items}}" as="it" hint-placeholder-count="4">
+              <span style="{{it.style}}">{{it.label}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+</aside>
+
+<main style="{{mainStyle}}">
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:40px">
+    <section ref="{{revealExperience}}" style="{{styleExperience}}">
+      <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20"></path></svg>Experience</h2>
+      <div style="height:1px;background:var(--border);margin-bottom:28px"></div>
+      <div style="display:flex;flex-direction:column;gap:30px;position:relative;border-left:2px solid var(--border);margin-left:5px">
+        <sc-for list="{{experience}}" as="job" hint-placeholder-count="2">
+          <div style="{{job.itemStyle}}">
+            <div style="{{job.dotStyle}}"></div>
+            <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px">
+              <image-slot id="exp-logo-{{$index}}" shape="rounded" radius="6" style="width:38px;height:38px;flex:none;background:var(--pill)" placeholder="Logo"></image-slot>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px">
+                  <span style="font-size:calc(17px * var(--fs-scale));font-weight:700;color:var(--text)">{{job.role}}</span>
+                  <span style="font-size:calc(13px * var(--fs-scale));color:var(--text3);white-space:nowrap">{{job.dates}}</span>
+                </div>
+                <p style="margin:0;font-size:calc(14.5px * var(--fs-scale));font-weight:500;color:var(--text2)">{{job.company}}</p>
+              </div>
+            </div>
+            <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:7px">
+              <sc-for list="{{job.bullets}}" as="b" hint-placeholder-count="3">
+                <li style="font-size:calc(14.5px * var(--fs-scale));line-height:1.6;color:var(--text2)">{{b}}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section ref="{{revealEducation}}" style="{{styleEducation}}">
+      <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4Z"></path><path d="M6 11v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5"></path></svg>Education</h2>
+      <div style="height:1px;background:var(--border);margin-bottom:28px"></div>
+      <div style="display:flex;flex-direction:column;gap:26px;position:relative;border-left:2px solid var(--border);margin-left:5px">
+        <sc-for list="{{education}}" as="ed" hint-placeholder-count="2">
+          <div style="{{ed.itemStyle}}">
+            <div style="{{ed.dotStyle}}"></div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <image-slot id="edu-logo-{{$index}}" shape="rounded" radius="6" style="width:38px;height:38px;flex:none;background:var(--pill)" placeholder="Logo"></image-slot>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px">
+                  <span style="font-size:calc(17px * var(--fs-scale));font-weight:700;color:var(--text)">{{ed.degree}}</span>
+                  <span style="font-size:calc(13px * var(--fs-scale));color:var(--text3);white-space:nowrap">{{ed.dates}}</span>
+                </div>
+                <p style="margin:0;font-size:calc(14.5px * var(--fs-scale));color:var(--text2)">{{ed.school}}</p>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:40px">
+    <section ref="{{revealProjects}}" style="{{styleProjects}}">
+      <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>Projects</h2>
+      <div style="height:1px;background:var(--border);margin-bottom:24px"></div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <sc-for list="{{projects}}" as="proj" hint-placeholder-count="3">
+          <div style="{{proj.itemStyle}}" style-hover="transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,0.14)">
+            <h3 style="font-size:calc(17px * var(--fs-scale));font-weight:700;margin:0;color:var(--text)">{{proj.name}}</h3>
+            <p style="margin:0;font-size:calc(14.5px * var(--fs-scale));line-height:1.6;color:var(--text2);flex:1">{{proj.description}}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px">
+              <sc-for list="{{proj.stack}}" as="s" hint-placeholder-count="3">
+                <span style="font-size:calc(12px * var(--fs-scale));padding:5px 12px;background:var(--pill);border-radius:100px;color:var(--text)">{{s}}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:2px">
+              <sc-for list="{{proj.links}}" as="lnk" hint-placeholder-count="2">
+                <a href="{{lnk.url}}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:4px;font-size:calc(13px * var(--fs-scale));color:var(--accent)">
+                  <span style="background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0% 1px;transition:background-size 0.3s ease;padding-bottom:1px" style-hover="background-size:100% 1px">{{lnk.label}}</span>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section ref="{{revealBlogs}}" style="{{styleBlogs}}">
+      <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h13a2 2 0 0 1 2 2v13a1 1 0 0 1-1.7.7L15 17H6a2 2 0 0 1-2-2Z"></path><path d="M8 9h8M8 12.5h5"></path></svg>Blogs</h2>
+      <div style="height:1px;background:var(--border);margin-bottom:24px"></div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <sc-for list="{{blogs}}" as="post" hint-placeholder-count="4">
+          <a href="{{post.url}}" target="_blank" rel="noopener" style="{{post.itemStyle}}" style-hover="transform:translateY(-4px);box-shadow:0 6px 18px rgba(0,0,0,0.14)">
+            <div style="width:96px;height:96px;flex:none;border-radius:8px;background-image:url({{post.image}});background-size:cover;background-position:center"></div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <h3 style="font-size:calc(16px * var(--fs-scale));font-weight:700;margin:0;color:var(--text);line-height:1.35">{{post.title}}</h3>
+              <p style="margin:0;font-size:calc(14px * var(--fs-scale));color:var(--text2)">{{post.description}}</p>
+              <span style="display:flex;align-items:center;gap:4px;font-size:calc(13px * var(--fs-scale));color:var(--accent);margin-top:2px">
+                <span style="background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0% 1px;transition:background-size 0.3s ease;padding-bottom:1px" style-hover="background-size:100% 1px">Read on Medium</span>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+              </span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+
+  <section ref="{{revealPublications}}" style="{{stylePublications}}">
+    <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"></path><path d="M9 7h7M9 10.5h7"></path></svg>Academic Publications</h2>
+    <div style="height:1px;background:var(--border);margin-bottom:28px"></div>
+    <div style="display:flex;flex-direction:column;gap:26px;position:relative;border-left:2px solid var(--border);margin-left:5px">
+      <sc-for list="{{publications}}" as="pub" hint-placeholder-count="3">
+        <div style="{{pub.itemStyle}}">
+          <div style="{{pub.dotStyle}}"></div>
+          <h3 style="font-size:calc(16px * var(--fs-scale));font-weight:700;margin:0 0 6px;line-height:1.4;color:var(--text)">{{pub.title}}</h3>
+          <p style="margin:0 0 8px;font-size:calc(14px * var(--fs-scale));color:var(--text2)">{{pub.authors}} — {{pub.venue}}, {{pub.year}}</p>
+          <a href="{{pub.url}}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;font-size:calc(13px * var(--fs-scale));color:var(--accent)">
+            <span style="background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0% 1px;transition:background-size 0.3s ease;padding-bottom:1px" style-hover="background-size:100% 1px">View paper</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+          </a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{showBottomSkills}}" hint-placeholder-val="{{false}}">
+  <section ref="{{revealBottomSkills}}" style="{{styleBottomSkills}}">
+    <h2 style="display:flex;align-items:center;gap:10px;font-size:calc(23px * var(--fs-scale));font-weight:700;margin:0 0 18px;color:var(--text)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4a2 2 0 0 1 2 2v4l3 3v3h-4v4h-6v-4H5v-3l3-3V6a2 2 0 0 1 2-2Z"></path></svg>Skills</h2>
+    <div style="height:1px;background:var(--border);margin-bottom:24px"></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{skillGroupsBottom}}" as="grp" hint-placeholder-count="6">
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px">
+            <span style="font-size:calc(13px * var(--fs-scale));color:var(--text2);font-weight:500">{{grp.category}}</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <sc-for list="{{grp.items}}" as="it" hint-placeholder-count="4">
+              <span style="{{it.style}}">{{it.label}}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  </sc-if>
+
+</main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;fontScale&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:1,&quot;max&quot;:1.4,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;×&quot;,&quot;section&quot;:&quot;Typography&quot;}}">
+class Component extends DCLogic {
+  state = {
+    themeMode: (typeof localStorage !== 'undefined' && localStorage.getItem('portfolio-theme')) || 'system',
+    systemDark: true,
+    narrow: false,
+    visible: {},
+    loaded: false
+  };
+
+  constructor(props) {
+    super(props);
+    this.revealEls = [];
+    this.checkReveals = this.checkReveals.bind(this);
+  }
+
+  itemStyle(key, i, base) {
+    const on = !!this.state.visible[key];
+    const d = (i * 0.1).toFixed(2);
+    return {
+      ...base,
+      opacity: on ? 1 : 0,
+      transform: on ? 'translateY(0)' : 'translateY(14px)',
+      transition: `opacity 0.5s ease ${d}s, transform 0.5s ease ${d}s, box-shadow 0.25s ease`
+    };
+  }
+
+  dotStyle(key, i) {
+    const on = !!this.state.visible[key];
+    return {
+      position: 'absolute', left: -6, top: 5, width: 10, height: 10, borderRadius: '50%', background: 'var(--accent)',
+      transform: on ? 'scale(1)' : 'scale(0)',
+      transition: `transform 0.45s cubic-bezier(0.34,1.56,0.64,1) ${(0.1 + i * 0.18).toFixed(2)}s`
+    };
+  }
+
+  pillStyle(on, i) {
+    const d = (i * 0.08).toFixed(2);
+    return {
+      fontSize: 'calc(12px * var(--fs-scale))', padding: '6px 13px', background: 'var(--pill)', borderRadius: '100px', color: 'var(--text)',
+      opacity: on ? 1 : 0, transform: on ? 'translateY(0)' : 'translateY(6px)',
+      transition: `opacity 0.4s ease ${d}s, transform 0.4s ease ${d}s`
+    };
+  }
+
+
+
+  checkReveals() {
+    if (typeof window === 'undefined') return;
+    const vh = window.innerHeight;
+    const toReveal = [];
+    this.revealEls = this.revealEls.filter((el) => {
+      const r = el.getBoundingClientRect();
+      const hit = r.bottom > 0 && r.top < vh * 0.92;
+      if (hit) { toReveal.push(el.__revealKey); return false; }
+      return true;
+    });
+    if (toReveal.length) {
+      this.setState((s) => {
+        const visible = { ...s.visible };
+        toReveal.forEach((k) => { visible[k] = true; });
+        return { visible };
+      });
+    }
+  }
+
+  revealRef(key) {
+    return (el) => {
+      if (!el || el.__observed) return;
+      el.__observed = true;
+      el.__revealKey = key;
+      this.revealEls.push(el);
+      this.checkReveals();
+    };
+  }
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.checkReveals, { passive: true });
+      window.addEventListener('resize', this.checkReveals);
+      this.checkReveals();
+      requestAnimationFrame(() => this.setState({ loaded: true }));
+    }
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    this.mq = window.matchMedia('(prefers-color-scheme: dark)');
+    this.setState({ systemDark: this.mq.matches });
+    this.onChange = (e) => this.setState({ systemDark: e.matches });
+    this.mq.addEventListener('change', this.onChange);
+
+    this.mqNarrow = window.matchMedia('(max-width: 860px)');
+    this.setState({ narrow: this.mqNarrow.matches });
+    this.onNarrowChange = (e) => this.setState({ narrow: e.matches });
+    this.mqNarrow.addEventListener('change', this.onNarrowChange);
+  }
+
+  componentWillUnmount() {
+    if (this.mq && this.onChange) this.mq.removeEventListener('change', this.onChange);
+    if (this.mqNarrow && this.onNarrowChange) this.mqNarrow.removeEventListener('change', this.onNarrowChange);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.checkReveals);
+      window.removeEventListener('resize', this.checkReveals);
+    }
+  }
+
+  revealStyle(key, delay = 0) {
+    const on = !!this.state.visible[key];
+    return {
+      opacity: on ? 1 : 0,
+      transform: on ? 'translateY(0)' : 'translateY(24px)',
+      transition: `opacity 0.7s cubic-bezier(0.2,0.6,0.2,1) ${delay}s, transform 0.7s cubic-bezier(0.2,0.6,0.2,1) ${delay}s`
+    };
+  }
+
+  setMode(mode) {
+    this.setState({ themeMode: mode });
+    if (typeof localStorage !== 'undefined') localStorage.setItem('portfolio-theme', mode);
+  }
+
+  renderVals() {
+    const dark = this.state.themeMode === 'dark' || (this.state.themeMode === 'system' && this.state.systemDark);
+
+    const vars = dark ? {
+      '--bg': '#191919', '--card': 'oklch(0.24 0.004 90)', '--card2': 'oklch(0.24 0.004 90)',
+      '--text': 'oklch(0.97 0.003 90)', '--text2': 'oklch(0.82 0.005 90)', '--text3': 'oklch(0.72 0.004 90)',
+      '--border': 'rgba(255,255,255,0.1)', '--pill': 'oklch(0.32 0.004 90)',
+      '--accent': 'oklch(0.72 0.12 255)', '--accent-text': 'oklch(0.22 0.03 255)'
+    } : {
+      '--bg': '#f4f4f3', '--card': '#ffffff', '--card2': '#ffffff',
+      '--text': '#1a1a1a', '--text2': '#54575c', '--text3': '#75787d',
+      '--border': 'rgba(0,0,0,0.09)', '--pill': '#ececea',
+      '--accent': 'oklch(0.5 0.14 255)', '--accent-text': '#ffffff'
+    };
+
+    const narrow = this.state.narrow;
+
+    const rootStyle = {
+      ...vars,
+      '--fs-scale': this.props.fontScale ?? 1,
+      display: 'grid', gridTemplateColumns: narrow ? '1fr' : 'minmax(260px,1fr) minmax(0,2fr)', minHeight: '100vh',
+      fontFamily: "'Roboto',system-ui,sans-serif", color: 'var(--text)', backgroundColor: 'var(--bg)'
+    };
+
+    const asideStyle = narrow ? {
+      minWidth: 0, margin: '16px', padding: '32px 24px', display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center', textAlign: 'center', background: 'var(--card)',
+      borderRadius: 16, boxShadow: '0 1px 2px rgba(0,0,0,0.15), 0 4px 10px 2px rgba(0,0,0,0.08)'
+    } : {
+      position: 'sticky', top: 24, alignSelf: 'flex-start', minWidth: 0, margin: '24px 12px 24px 24px',
+      padding: '48px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center',
+      justifyContent: 'flex-start', textAlign: 'center', background: 'var(--card)', borderRadius: 16,
+      boxShadow: '0 1px 2px rgba(0,0,0,0.15), 0 4px 10px 2px rgba(0,0,0,0.08)',
+      height: 'calc(100vh - 48px)', overflowY: 'auto'
+    };
+
+    const mainStyle = narrow ? {
+      minWidth: 0, padding: '16px 20px 72px', display: 'flex', flexDirection: 'column', gap: 40
+    } : {
+      minWidth: 0, padding: '72px 48px 110px 36px', display: 'flex', flexDirection: 'column', gap: 56
+    };
+
+    const btnBase = { width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', borderRadius: '100px', cursor: 'pointer', background: 'transparent', color: 'var(--text3)' };
+    const activeBtn = { ...btnBase, background: 'var(--pill)', color: 'var(--text)' };
+    const mode = this.state.themeMode;
+
+    return {
+      rootStyle,
+      asideStyle,
+      mainStyle,
+      revealExperience: this.revealRef('experience'),
+      revealEducation: this.revealRef('education'),
+      revealProjects: this.revealRef('projects'),
+      revealBlogs: this.revealRef('blogs'),
+      revealPublications: this.revealRef('publications'),
+      revealBottomSkills: this.revealRef('bottomSkills'),
+      styleExperience: this.revealStyle('experience', 0),
+      styleEducation: this.revealStyle('education', 0.18),
+      styleProjects: this.revealStyle('projects', 0),
+      styleBlogs: this.revealStyle('blogs', 0.18),
+      stylePublications: this.revealStyle('publications', 0),
+      styleBottomSkills: this.revealStyle('bottomSkills', 0),
+      showSidebarSkills: !narrow,
+      showBottomSkills: narrow,
+      setLight: () => this.setMode('light'),
+      setDark: () => this.setMode('dark'),
+      setSystem: () => this.setMode('system'),
+      contactCardStyle: {
+        display: 'flex', flexDirection: 'column', gap: 14, alignItems: 'center', marginBottom: 26, width: '100%',
+        opacity: this.state.loaded ? 1 : 0, transform: this.state.loaded ? 'translateY(0)' : 'translateY(14px)',
+        transition: 'opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s'
+      },
+      lightBtnStyle: mode === 'light' ? activeBtn : btnBase,
+      darkBtnStyle: mode === 'dark' ? activeBtn : btnBase,
+      systemBtnStyle: mode === 'system' ? activeBtn : btnBase,
+      experience: [
+        {
+          role: 'Software Engineer', company: 'FirstPeak.ai', dates: 'Sept 2025 – Feb 2026',
+          bullets: [
+            'Built Python backend services for a multi-channel conversational AI platform, optimizing async workflows to handle 50k+ concurrent requests.',
+            'Designed an agent-to-agent evaluation framework where judge agents orchestrate calls to other agents, cutting manual QA cycles by 70%.',
+            'Parallelized automated voice-agent testing across concurrent async Twilio calls, cutting regression runtime from 4 hours to 25 minutes.'
+          ]
+        },
+        {
+          role: 'Software Engineer', company: 'New Engen', dates: 'Mar 2024 – May 2025',
+          bullets: [
+            'Migrated a JavaScript monolith into TypeScript + Python microservices, improving deployment frequency by 40% and cutting runtime errors by 25%.',
+            'Built Python GraphQL APIs powering custom client dashboards, sustaining 100ms average response times during 3x traffic spikes.',
+            'Implemented a fault-tolerant bulk emailing pipeline on RabbitMQ with idempotency and durable job processing, hitting 99.99% delivery success.'
+          ]
+        }
+      ].map((job, i) => ({ ...job, dotStyle: this.dotStyle('experience', i), itemStyle: this.itemStyle('experience', i, { position: 'relative', paddingLeft: 24 }) })),
+      education: [
+        { degree: 'M.S. Computer Science', school: 'North Carolina State University', dates: '2026 – Present' },
+        { degree: 'B.E. Computer Engineering', school: 'Pandit Deendayal Energy University, India', dates: '2021 – 2025' }
+      ].map((ed, i) => ({ ...ed, dotStyle: this.dotStyle('education', i), itemStyle: this.itemStyle('education', i, { position: 'relative', paddingLeft: 24 }) })),
+      projects: [
+        {
+          name: 'EarningsLens', description: 'RL environment predicting post-earnings stock movement from earnings call transcripts and press releases; published an open-source dataset for reproducible benchmarking.',
+          stack: ['Python', 'Gradio', 'Hugging Face', 'RL'],
+          links: [{ label: 'Live demo', url: '#' }, { label: 'GitHub', url: '#' }, { label: 'Dataset', url: '#' }]
+        },
+        {
+          name: 'ChatGPT Tokenizer', description: 'Manual implementation of the Byte Pair Encoding algorithm used by OpenAI in GPT-4.',
+          stack: ['Next.js', 'React', 'TypeScript'],
+          links: [{ label: 'Live demo', url: '#' }, { label: 'GitHub', url: '#' }]
+        },
+        {
+          name: 'NotebookLM', description: 'RAG chatbot for domain-specific Q&A, with end-to-end document ingestion and retrieval for long-form content.',
+          stack: ['Next.js', 'LangChain', 'Pinecone', 'PostgreSQL'],
+          links: [{ label: 'Demo video', url: '#' }, { label: 'GitHub', url: '#' }]
+        }
+      ].map((p, i) => ({ ...p, itemStyle: this.itemStyle('projects', i, { background: 'var(--card2)', borderRadius: 12, padding: '22px 22px', display: 'flex', flexDirection: 'column', gap: 11, boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }) })),
+      skillGroupsSidebar: this.buildSkillGroups(this.state.loaded),
+      skillGroupsBottom: this.buildSkillGroups(!!this.state.visible.bottomSkills),
+      blogs: [
+        { title: 'Clean Architecture', description: 'Because nothing stands the test of time ⏱️', url: 'https://medium.com/@rudrakshnanavaty/clean-architecture-7c1b3b4cb181', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/0*3ATAHRV0taZm5ieM' },
+        { title: 'Building a Web Server using GO and Gin', description: 'Because PHP is a Dinosaur 🦖', url: 'https://medium.com/@rudrakshnanavaty/building-a-web-server-using-go-and-gin-39150b8304ee', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/0*Y6aBqwZE_50dduN5' },
+        { title: 'Implementing Clean Architecture in GO', description: 'Because why not? 😉', url: 'https://medium.com/@rudrakshnanavaty/implementing-clean-architecture-in-go-5f06dd8c1596', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/0*Yjl8TesacqXIaW85' },
+        { title: 'Amazon Shopping — The Computer Engineer Way', description: "Because I'm lazy 🥱", url: 'https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1', image: 'https://miro.medium.com/v2/resize:fit:720/format:webp/0*elzkZ3Uow74cichb' }
+      ].map((b, i) => ({ ...b, itemStyle: this.itemStyle('blogs', i, { display: 'flex', gap: 16, alignItems: 'center', background: 'var(--card2)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 1px 2px rgba(0,0,0,0.1)', padding: 12 }) })),
+      publications: [
+        {
+          title: 'The Potential of Big Data and Machine Learning for Ground Water Quality Assessment and Prediction',
+          authors: 'Rajeev, Shah, Shah, Shah, Nanavaty', venue: 'Archives of Computational Methods in Engineering', year: '2025',
+          url: 'https://doi.org/10.1007/s11831-024-10156-w'
+        },
+        {
+          title: 'Exploring Autoencoders and XGBoost for Predictive Maintenance in Geothermal Power Plants',
+          authors: 'Nanavaty', venue: '49th Stanford Geothermal Workshop', year: '2024',
+          url: 'http://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf'
+        },
+        {
+          title: 'A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction',
+          authors: 'Pandya, Nanavaty, Pipariya, Shah', venue: 'Archives of Computational Methods in Engineering', year: '2023',
+          url: 'https://doi.org/10.1007/s11831-023-09994-x'
+        }
+      ].map((pub, i) => ({ ...pub, dotStyle: this.dotStyle('publications', i), itemStyle: this.itemStyle('publications', i, { position: 'relative', paddingLeft: 24 }) }))
+    };
+  }
+
+  buildSkillGroups(on) {
+    return [
+      { category: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'Go'] },
+      { category: 'Back End', items: ['REST APIs', 'GraphQL', 'Microservices'] },
+      { category: 'AI & LLMs', items: ['RAG', 'Vector Databases', 'Prompt Engineering'] },
+      { category: 'Data & Messaging', items: ['SQL & NoSQL Databases', 'Message Queues'] },
+      { category: 'Cloud & DevOps', items: ['Cloud Platforms', 'Containerization', 'CI/CD'] }
+    ].map((g) => ({ category: g.category, items: g.items.map((label, i) => ({ label, style: this.pillStyle(on, i) })) }));
+  }
+}
+</script>
+</body>
+</html>

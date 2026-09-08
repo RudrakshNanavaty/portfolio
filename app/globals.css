@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+/* Global type scale — 1 = default, 1.1 = 10% larger, 0.9 = 10% smaller */
+:root {
+  --fs-scale: 1;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-card2: var(--card2);
+  --color-text: var(--text);
+  --color-text2: var(--text2);
+  --color-text3: var(--text3);
+  --color-border: var(--border);
+  --color-pill: var(--pill);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --font-sans:
+    var(--font-instrument-sans), "Instrument Sans", system-ui, sans-serif;
+  --font-serif:
+    var(--font-instrument-serif), "Instrument Serif", ui-serif, Georgia, serif;
+
+  /* Typography scale — change --fs-scale on :root to resize all text */
+  --text-fs-8: calc(8px * var(--fs-scale));
+  --text-fs-12: calc(12px * var(--fs-scale));
+  --text-fs-12_5: calc(12.5px * var(--fs-scale));
+  --text-fs-13: calc(13px * var(--fs-scale));
+  --text-fs-14: calc(14px * var(--fs-scale));
+  --text-fs-14_5: calc(14.5px * var(--fs-scale));
+  --text-fs-15: calc(15px * var(--fs-scale));
+  --text-fs-15_5: calc(15.5px * var(--fs-scale));
+  --text-fs-16: calc(16px * var(--fs-scale));
+  --text-fs-17: calc(17px * var(--fs-scale));
+  --text-fs-26: calc(26px * var(--fs-scale));
+  --text-fs-30: calc(30px * var(--fs-scale));
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f4f3;
+  --card: #ffffff;
+  --card2: #ffffff;
+  --text: #1a1a1a;
+  --text2: #54575c;
+  --text3: #75787d;
+  --border: rgba(0, 0, 0, 0.09);
+  --pill: #ececea;
+  --accent: oklch(0.5 0.14 255);
+  --accent-text: #ffffff;
+}
+
+:root[data-theme="dark"] {
+  --bg: #191919;
+  --card: oklch(0.24 0.004 90);
+  --card2: oklch(0.24 0.004 90);
+  --text: oklch(0.97 0.003 90);
+  --text2: oklch(0.82 0.005 90);
+  --text3: oklch(0.72 0.004 90);
+  --border: rgba(255, 255, 255, 0.1);
+  --pill: oklch(0.32 0.004 90);
+  --accent: oklch(0.72 0.12 255);
+  --accent-text: oklch(0.22 0.03 255);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* CTA: light text in light mode, dark in dark mode — never flip on hover */
+a.bg-accent,
+a.bg-accent:hover {
+  color: var(--accent-text);
+}
+
+html {
+  scroll-padding-bottom: 6.5rem;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Reveal + hover lift compose without inline transform fights */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s ease var(--reveal-delay, 0s),
+    transform 0.5s ease var(--reveal-delay, 0s),
+    box-shadow 0.25s ease;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-item.is-visible.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) var(--section-delay, 0s),
+    transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) var(--section-delay, 0s);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-dot {
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)
+    var(--dot-delay, 0.1s);
+}
+
+.reveal-item.is-visible .reveal-dot {
+  transform: scale(1);
+}
+
+/* Timeline: rail + dots; line runs first→last dot only */
+.timeline {
+  --tl-gap: 1.625rem;
+  --tl-dot: 10px;
+  --tl-line: 2px;
+  --tl-slot-h: 38px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--tl-gap);
+}
+
+.timeline--text {
+  --tl-slot-h: calc(16px * var(--fs-scale) * 1.4);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: var(--tl-dot) minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: start;
+  position: relative;
+}
+
+.timeline-rail {
+  position: relative;
+  width: var(--tl-dot);
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timeline-dot-slot {
+  width: var(--tl-dot);
+  height: var(--tl-slot-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: var(--tl-dot);
+  height: var(--tl-dot);
+  border-radius: 9999px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--tl-dot) / 2 - var(--tl-line) / 2);
+  top: calc(var(--tl-slot-h) / 2);
+  width: var(--tl-line);
+  height: calc(100% + var(--tl-gap));
+  background: var(--border);
+  z-index: 0;
+}
+
+.skill-pill {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.4s ease var(--pill-delay, 0s),
+    transform 0.4s ease var(--pill-delay, 0s);
+}
+
+.skill-pill.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Bottom section dock — mobile: edge-aligned with content; desktop: centered */
+.section-dock {
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  transition:
+    opacity 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s,
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s;
+}
+
+.section-dock.is-ready {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (min-width: 860px) {
+  .section-dock {
+    transform: translate(-50%, 18px) scale(0.96);
+  }
+
+  .section-dock.is-ready {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.section-dock-indicator {
+  transition:
+    left 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.25s ease;
+}
+
+.section-dock-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.section-dock-btn[aria-current="true"] .section-dock-icon svg {
+  stroke: var(--accent);
+}
+
+.scroll-top {
+  opacity: 0;
+  transform: translateY(12px) scale(0.92);
+  pointer-events: none;
+  transition:
+    opacity 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-dock,
+  .section-dock-indicator,
+  .section-dock-label,
+  .scroll-top {
+    transition: none !important;
+  }
+}
