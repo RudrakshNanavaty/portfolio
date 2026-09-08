@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 
 export function UnderlineLink({ children }: { children: ReactNode }) {
@@ -10,10 +11,18 @@ export function UnderlineLink({ children }: { children: ReactNode }) {
   );
 }
 
-export function LogoPlaceholder() {
+export function Logo({ src, alt }: { src?: string; alt: string }) {
+  if (!src) {
+    return (
+      <div className="w-[38px] h-[38px] flex-none rounded-md bg-pill flex items-center justify-center text-fs-8 font-mono uppercase tracking-wide text-text3">
+        Logo
+      </div>
+    );
+  }
+
   return (
-    <div className="w-[38px] h-[38px] flex-none rounded-md bg-pill flex items-center justify-center text-fs-8 font-mono uppercase tracking-wide text-text3">
-      Logo
+    <div className="relative w-[38px] h-[38px] flex-none rounded-md overflow-hidden bg-pill">
+      <Image src={src} alt={alt} fill className="object-cover" sizes="38px" />
     </div>
   );
 }

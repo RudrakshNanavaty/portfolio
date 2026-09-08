@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useReveal } from '@/hooks/useReveal';
 import { experience, education, projects, blogs, publications, skillGroups, type Job, type Education, type Project, type Blog, type Publication } from '@/lib/data';
 import { SunIcon, SystemIcon, MoonIcon, MailIcon, PhoneIcon, PinIcon, GithubIcon, LinkedinIcon, MediumIcon, ScholarIcon, DownloadIcon, BriefcaseIcon, CapIcon, ProjectsIcon, BlogIcon, PublicationIcon, SkillsIcon, ExternalIcon } from './icons';
-import { UnderlineLink, LogoPlaceholder } from './ui';
+import { UnderlineLink, Logo } from './ui';
 import SectionDock from './SectionDock';
 import ScrollToTop from './ScrollToTop';
 
@@ -163,7 +163,7 @@ function TimelineJob({ job, i }: { job: Job; i: number }) {
   return (
     <TimelineItem i={i} visible={visible}>
       <div className="flex gap-3 items-start mb-2.5">
-        <LogoPlaceholder />
+        <Logo src={job.logo} alt={`${job.company} logo`} />
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-baseline gap-x-1.5 gap-y-0.5 flex-wrap">
             <span className="text-fs-17 font-bold text-text break-words">{job.role}</span>
@@ -191,7 +191,7 @@ function TimelineEdu({ ed, i }: { ed: Education; i: number }) {
   return (
     <TimelineItem i={i} visible={visible}>
       <div className="flex gap-3 items-start">
-        <LogoPlaceholder />
+        <Logo src={ed.logo} alt={`${ed.school} logo`} />
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-baseline gap-x-1.5 gap-y-0.5 flex-wrap">
             <span className="text-fs-17 font-bold text-text break-words">{ed.degree}</span>

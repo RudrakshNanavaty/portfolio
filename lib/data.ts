@@ -2,6 +2,7 @@ export interface Job {
   role: string;
   company: string;
   dates: string;
+  logo?: string;
   bullets: string[];
 }
 
@@ -9,6 +10,7 @@ export interface Education {
   degree: string;
   school: string;
   dates: string;
+  logo?: string;
 }
 
 export interface ProjectLink {
@@ -48,6 +50,7 @@ export const experience: Job[] = [
     role: 'Software Engineer',
     company: 'FirstPeak.ai',
     dates: 'Sept 2025 – Feb 2026',
+    logo: '/assets/firstpeak.webp',
     bullets: [
       'Built Python backend services for a multi-channel conversational AI platform, optimizing async workflows to handle 50k+ concurrent requests.',
       'Designed an agent-to-agent evaluation framework where judge agents orchestrate calls to other agents, cutting manual QA cycles by 70%.',
@@ -58,6 +61,7 @@ export const experience: Job[] = [
     role: 'Software Engineer',
     company: 'New Engen',
     dates: 'Mar 2024 – May 2025',
+    logo: '/assets/new_engen.webp',
     bullets: [
       'Migrated a JavaScript monolith into TypeScript + Python microservices, improving deployment frequency by 40% and cutting runtime errors by 25%.',
       'Built Python GraphQL APIs powering custom client dashboards, sustaining 100ms average response times during 3x traffic spikes.',
@@ -68,7 +72,12 @@ export const experience: Job[] = [
 
 export const education: Education[] = [
   { degree: 'M.S. Computer Science', school: 'North Carolina State University', dates: '2026 – Present' },
-  { degree: 'B.E. Computer Engineering', school: 'Pandit Deendayal Energy University, India', dates: '2021 – 2025' }
+  {
+    degree: 'B.E. Computer Engineering',
+    school: 'Pandit Deendayal Energy University, India',
+    dates: '2021 – 2025',
+    logo: '/assets/pdeu.webp'
+  }
 ];
 
 export const projects: Project[] = [
