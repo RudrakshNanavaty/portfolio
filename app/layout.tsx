@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Instrument_Sans, Instrument_Serif } from 'next/font/google';
+import { PostHogProvider } from '@/components/providers/posthog-provider';
 import './globals.css';
 
 const instrumentSans = Instrument_Sans({
@@ -33,7 +34,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <PostHogProvider>{children}</PostHogProvider>
+      </body>
     </html>
   );
 }
