@@ -71,7 +71,12 @@ export const experience: Job[] = [
 ];
 
 export const education: Education[] = [
-  { degree: 'M.S. Computer Science', school: 'North Carolina State University', dates: '2026 – Present' },
+  {
+    degree: 'M.S. Computer Science',
+    school: 'North Carolina State University',
+    dates: '2026 – Present',
+    logo: '/assets/ncsu-logo.webp'
+  },
   {
     degree: 'B.E. Computer Engineering',
     school: 'Pandit Deendayal Energy University, India',
