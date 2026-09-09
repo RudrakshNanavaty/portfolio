@@ -158,13 +158,24 @@ function TimelineItem({
   );
 }
 
-function TimelineHeading({ title, dates }: { title: string; dates: string }) {
+function TimelineHeading({
+  title,
+  subtitle,
+  dates,
+  subtitleClassName
+}: {
+  title: string;
+  subtitle: string;
+  dates: string;
+  subtitleClassName?: string;
+}) {
   return (
     <div className="@container min-w-0">
+      <span className="block text-fs-17 font-bold text-text wrap-break-word">{title}</span>
       <div className="flex flex-col gap-px @[22rem]:flex-row @[22rem]:flex-wrap @[22rem]:items-baseline @[22rem]:justify-between @[22rem]:gap-x-3 @[22rem]:gap-y-0.5">
-        <span className="text-fs-17 font-bold text-text wrap-break-word @[22rem]:min-w-[min(100%,12rem)] @[22rem]:flex-1">
-          {title}
-        </span>
+        <p className={`m-0 text-fs-14.5 text-text2 wrap-break-word @[22rem]:min-w-[min(100%,12rem)] @[22rem]:flex-1 ${subtitleClassName ?? ''}`.trim()}>
+          {subtitle}
+        </p>
         <span className="text-fs-13 text-text3 whitespace-nowrap">{dates}</span>
       </div>
     </div>
@@ -178,8 +189,7 @@ function TimelineJob({ job, i }: { job: Job; i: number }) {
       <div className="flex gap-3 items-start mb-2.5">
         <Logo src={job.logo} alt={`${job.company} logo`} />
         <div className="flex-1 min-w-0">
-          <TimelineHeading title={job.role} dates={job.dates} />
-          <p className="m-0 text-fs-14.5 font-medium text-text2 break-words">{job.company}</p>
+          <TimelineHeading title={job.role} subtitle={job.company} dates={job.dates} subtitleClassName="font-medium" />
         </div>
       </div>
       <ul className="m-0 ml-[50px] flex flex-col gap-2 max-[480px]:ml-0">
@@ -203,8 +213,7 @@ function TimelineEdu({ ed, i }: { ed: Education; i: number }) {
       <div className="flex gap-3 items-start">
         <Logo src={ed.logo} alt={`${ed.school} logo`} />
         <div className="flex-1 min-w-0">
-          <TimelineHeading title={ed.degree} dates={ed.dates} />
-          <p className="m-0 text-fs-14.5 text-text2 break-words">{ed.school}</p>
+          <TimelineHeading title={ed.degree} subtitle={ed.school} dates={ed.dates} />
         </div>
       </div>
     </TimelineItem>
