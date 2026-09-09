@@ -6,10 +6,10 @@ export const site = {
   jobTitle: 'Software Engineer',
   tagline: '1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines',
   description:
-    'Backend and AI platform engineer in Raleigh, NC. Built systems at FirstPeak.ai and New Engen. MS CS at NCSU. Python, TypeScript, GraphQL, RAG.',
-  ogTitle: 'Rudraksh Nanavaty — Software Engineer | Raleigh, NC',
+    'Backend and AI platform engineer in Raleigh, NC, USA. Built systems at FirstPeak.ai and New Engen. MS CS at NCSU. Python, TypeScript, GraphQL, RAG.',
+  ogTitle: 'Rudraksh Nanavaty — Software Engineer | Raleigh, NC, USA',
   ogDescription:
-    'Backend and AI platform engineer in Raleigh, NC. Formerly FirstPeak.ai and New Engen. MS CS at North Carolina State University.',
+    'Backend and AI platform engineer in Raleigh, NC, USA. Formerly FirstPeak.ai and New Engen. MS CS at North Carolina State University.',
   email: 'rudrakshnanavaty@gmail.com',
   phone: '+19843822116',
   phoneDisplay: '+1 (984) 382-2116',

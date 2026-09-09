@@ -13,7 +13,7 @@ export default async function OpenGraphImage() {
     readFile(join(process.cwd(), 'public/fonts/SpaceMono-Bold.ttf'))
   ]);
 
-  const location = `${site.location.locality}, ${site.location.region}`;
+  const location = `${site.location.display}`;
 
   return new ImageResponse(
     (
