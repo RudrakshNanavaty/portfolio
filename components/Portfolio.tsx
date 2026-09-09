@@ -158,6 +158,19 @@ function TimelineItem({
   );
 }
 
+function TimelineHeading({ title, dates }: { title: string; dates: string }) {
+  return (
+    <div className="@container min-w-0">
+      <div className="flex flex-col gap-px @[22rem]:flex-row @[22rem]:flex-wrap @[22rem]:items-baseline @[22rem]:justify-between @[22rem]:gap-x-3 @[22rem]:gap-y-0.5">
+        <span className="text-fs-17 font-bold text-text wrap-break-word @[22rem]:min-w-[min(100%,12rem)] @[22rem]:flex-1">
+          {title}
+        </span>
+        <span className="text-fs-13 text-text3 whitespace-nowrap">{dates}</span>
+      </div>
+    </div>
+  );
+}
+
 function TimelineJob({ job, i }: { job: Job; i: number }) {
   const visible = useContext(SectionVisible);
   return (
@@ -165,10 +178,7 @@ function TimelineJob({ job, i }: { job: Job; i: number }) {
       <div className="flex gap-3 items-start mb-2.5">
         <Logo src={job.logo} alt={`${job.company} logo`} />
         <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-baseline gap-x-1.5 gap-y-0.5 flex-wrap">
-            <span className="text-fs-17 font-bold text-text break-words">{job.role}</span>
-            <span className="text-fs-13 text-text3 whitespace-nowrap ml-auto">{job.dates}</span>
-          </div>
+          <TimelineHeading title={job.role} dates={job.dates} />
           <p className="m-0 text-fs-14.5 font-medium text-text2 break-words">{job.company}</p>
         </div>
       </div>
@@ -193,10 +203,7 @@ function TimelineEdu({ ed, i }: { ed: Education; i: number }) {
       <div className="flex gap-3 items-start">
         <Logo src={ed.logo} alt={`${ed.school} logo`} />
         <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-baseline gap-x-1.5 gap-y-0.5 flex-wrap">
-            <span className="text-fs-17 font-bold text-text break-words">{ed.degree}</span>
-            <span className="text-fs-13 text-text3 whitespace-nowrap ml-auto">{ed.dates}</span>
-          </div>
+          <TimelineHeading title={ed.degree} dates={ed.dates} />
           <p className="m-0 text-fs-14.5 text-text2 break-words">{ed.school}</p>
         </div>
       </div>
