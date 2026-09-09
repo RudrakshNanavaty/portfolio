@@ -318,7 +318,7 @@ export default function Portfolio() {
         <h1 className="font-serif text-fs-30 font-normal m-0 mb-2 text-text tracking-[-0.02em]">Rudraksh Nanavaty</h1>
         <p className="text-fs-15.5 text-text2 m-0 mb-[18px] font-medium">Software Engineer</p>
         <p className="text-fs-14.5 leading-[1.65] text-text2 m-0 mb-[30px] max-w-[240px]">
-          Backend-leaning software engineer building AI platforms, APIs and data pipelines.
+          1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines
         </p>
 
         <div
