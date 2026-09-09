@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: 'Rudraksh Nanavaty — Software Engineer',
-  description: 'Backend-leaning software engineer building AI platforms, APIs and data pipelines.',
+  description: '1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines',
   icons: {
     icon: '/assets/favicon.svg'
   }
