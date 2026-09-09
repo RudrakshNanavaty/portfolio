@@ -1,0 +1,82 @@
+# Rudraksh Nanavaty — Full Profile
+> Software engineer in Raleigh, NC. 1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines.
+
+- Site: https://rdx.sh
+- Location: Raleigh, NC, USA
+- Email: rudrakshnanavaty@gmail.com
+- Phone: +1 (984) 382-2116
+- Resume: https://rdx.sh/assets/Rudraksh-Nanavaty-Resume.pdf
+
+## Education
+
+### M.S. Computer Science — North Carolina State University
+- Dates: 2026 – Present
+
+### B.E. Computer Engineering — Pandit Deendayal Energy University, India
+- Dates: 2021 – 2025
+
+## Experience
+
+### Software Engineer — FirstPeak.ai (Sept 2025 – Feb 2026)
+- Python async backend for multi-channel conversational AI. Scaled to 10k+ concurrent requests.
+- Voice Agent evaluation framework with LLM-as-a-judge, automating QA. 10x faster than manual testing.
+- Parallelized Twilio voice test suite.
+
+### Software Engineer — New Engen (Mar 2024 – May 2025)
+- Migrated legacy JS monolith to modern TypeScript/Python services. +40% deploy frequency, -25% runtime bugs.
+- Achieved 6x faster API response times, compared to legacy code.
+- Built Python GraphQL APIs with 100ms responses during 3x traffic peaks.
+- RabbitMQ bulk email pipeline with idempotency and durability; 99.99% success.
+
+## Projects
+
+### EarningsLens
+RL environment predicting post-earnings stock movement from earnings call transcripts and press releases; published an open-source dataset for reproducible benchmarking.
+Stack: Python, Gradio, Hugging Face, RL
+
+### ChatGPT Tokenizer
+Manual implementation of the Byte Pair Encoding algorithm used by OpenAI in GPT-4.
+Stack: Next.js, React, TypeScript
+
+### NotebookLM
+RAG chatbot for domain-specific Q&A, with end-to-end document ingestion and retrieval for long-form content.
+Stack: Next.js, LangChain, Pinecone, PostgreSQL
+
+## Publications
+
+1. The Potential of Big Data and Machine Learning for Ground Water Quality Assessment and Prediction
+   Authors: Rajeev, Shah, Shah, Shah, Nanavaty
+   Venue: Archives of Computational Methods in Engineering, 2025
+   URL: https://doi.org/10.1007/s11831-024-10156-w
+
+2. Exploring Autoencoders and XGBoost for Predictive Maintenance in Geothermal Power Plants
+   Authors: Nanavaty
+   Venue: 49th Stanford Geothermal Workshop, 2024
+   URL: http://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf
+
+3. A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction
+   Authors: Pandya, Nanavaty, Pipariya, Shah
+   Venue: Archives of Computational Methods in Engineering, 2023
+   URL: https://doi.org/10.1007/s11831-023-09994-x
+
+## Skills
+
+- Languages: Python, TypeScript, JavaScript, Go
+- Back End: REST APIs, GraphQL, Microservices
+- AI & LLMs: RAG, Vector Databases, Prompt Engineering
+- Data & Messaging: SQL & NoSQL Databases, Message Queues
+- Cloud & DevOps: Cloud Platforms, Containerization, CI/CD
+
+## Writing
+
+- Clean Architecture — https://medium.com/@rudrakshnanavaty/clean-architecture-7c1b3b4cb181
+- Building a Web Server using GO and Gin — https://medium.com/@rudrakshnanavaty/building-a-web-server-using-go-and-gin-39150b8304ee
+- Implementing Clean Architecture in GO — https://medium.com/@rudrakshnanavaty/implementing-clean-architecture-in-go-5f06dd8c1596
+- Amazon Shopping — The Computer Engineer Way — https://medium.com/@rudrakshnanavaty/amazon-shopping-the-computer-engineer-way-e9c0839723d1
+
+## Profiles
+
+- GitHub: https://github.com/RudrakshNanavaty
+- LinkedIn: https://linkedin.com/in/RudrakshNanavaty
+- Medium: https://medium.com/@rudrakshnanavaty
+- Google Scholar: https://scholar.google.com/citations?user=p32ldl8AAAAJ

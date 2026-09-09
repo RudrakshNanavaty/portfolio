@@ -1,0 +1,42 @@
+# Rudraksh Nanavaty
+> Software engineer in Raleigh, NC. 1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines.
+
+- Site: https://rdx.sh
+- Location: Raleigh, NC, USA
+- Email: rudrakshnanavaty@gmail.com
+- Full profile: https://rdx.sh/llms-full.txt
+
+## Education
+- M.S. Computer Science, North Carolina State University (2026–Present)
+- B.E. Computer Engineering, Pandit Deendayal Energy University, India (2021–2025)
+
+## Experience
+- Software Engineer, FirstPeak.ai (Sept 2025 – Feb 2026) — conversational AI backends, Stripe billing, agent evaluation, Twilio voice testing, Langfuse
+- Software Engineer, New Engen (Mar 2024 – May 2025) — TypeScript/Python microservices, GraphQL APIs, RabbitMQ email pipelines
+
+## Projects
+- EarningsLens — RL environment predicting post-earnings stock movement from call transcripts; open-source dataset
+- ChatGPT Tokenizer — Byte Pair Encoding implementation used by GPT-4 (Next.js/TypeScript)
+- NotebookLM — RAG chatbot with document ingestion and retrieval (LangChain, Pinecone, PostgreSQL)
+- Kanban App — full-stack Kanban with auth and task management (React, Node.js, Express, MongoDB)
+
+## Publications
+- The Potential of Big Data and Machine Learning for Ground Water Quality Assessment and Prediction (2025) — https://doi.org/10.1007/s11831-024-10156-w
+- Exploring Autoencoders and XGBoost for Predictive Maintenance in Geothermal Power Plants (2024) — http://pangea.stanford.edu/ERE/db/GeoConf/papers/SGW/2024/Nanavaty.pdf
+- A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction (2023) — https://doi.org/10.1007/s11831-023-09994-x
+
+## Skills
+- Languages: Python, TypeScript, JavaScript, Go
+- Back End: FastAPI, Flask, ExpressJS, Node.js, REST APIs, GraphQL, Microservices, Gin
+- Front End: Next.js, React.js, Tailwind CSS, Redux Toolkit, Zustand
+- AI & LLMs: RAG, LangChain, Prompt Engineering, Vector Databases, Pinecone, Langfuse
+- Data & Messaging: SQL, NoSQL, PostgreSQL, MongoDB, Redis, Firebase, RabbitMQ
+- Cloud & DevOps: AWS, GCP, Docker, NGINX, CI/CD, Observability
+
+## Writing
+- Medium: https://medium.com/@rudrakshnanavaty
+
+## Profiles
+- GitHub: https://github.com/RudrakshNanavaty
+- LinkedIn: https://linkedin.com/in/RudrakshNanavaty
+- Google Scholar: https://scholar.google.com/citations?user=p32ldl8AAAAJ

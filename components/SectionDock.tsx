@@ -21,8 +21,8 @@ const DESKTOP_MQ = '(min-width: 860px)';
 const SAME_ROW_PX = 48;
 
 const ITEMS: DockItem[] = [
-  { id: 'experience', label: 'Experience', icon: <BriefcaseIcon /> },
   { id: 'education', label: 'Education', icon: <CapIcon /> },
+  { id: 'experience', label: 'Experience', icon: <BriefcaseIcon /> },
   { id: 'projects', label: 'Projects', icon: <ProjectsIcon /> },
   { id: 'blogs', label: 'Blogs', icon: <BlogIcon /> },
   { id: 'publications', label: 'Papers', icon: <PublicationIcon /> },
@@ -64,14 +64,14 @@ function resolveSectionEl(id: string): HTMLElement | null {
 }
 
 export default function SectionDock() {
-  const [active, setActive] = useState('experience');
+  const [active, setActive] = useState('education');
   const [ready, setReady] = useState(false);
   const isDesktop = useSyncExternalStore(subscribeDesktop, getDesktopSnapshot, getDesktopServerSnapshot);
   const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
   const btnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const clicking = useRef(false);
   // Skills is mobile-only; keep dock highlight valid on desktop without a reset effect.
-  const effectiveActive = isDesktop && active === 'skills' ? 'experience' : active;
+  const effectiveActive = isDesktop && active === 'skills' ? 'education' : active;
   const activeRef = useRef(effectiveActive);
 
   useLayoutEffect(() => {
@@ -90,6 +90,14 @@ export default function SectionDock() {
 
     const pickActive = () => {
       if (clicking.current) return;
+
+      // At page top, keep the first section active even if a taller section below
+      // intersects the focus band more (education is short; experience would win otherwise).
+      const firstId = items[0]?.id;
+      if (firstId && window.scrollY < 48) {
+        if (activeRef.current !== firstId) setActive(firstId);
+        return;
+      }
 
       const focusY = window.innerHeight * 0.28;
       type Candidate = { id: string; top: number; dist: number };

@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useState, useSyncExternalStore, t
 import Image from 'next/image';
 import { useReveal } from '@/hooks/useReveal';
 import { experience, education, projects, blogs, publications, skillGroups, type Job, type Education, type Project, type Blog, type Publication } from '@/lib/data';
+import { scholarUrl, site } from '@/lib/site';
 import { SunIcon, SystemIcon, MoonIcon, MailIcon, PhoneIcon, PinIcon, GithubIcon, LinkedinIcon, MediumIcon, ScholarIcon, DownloadIcon, BriefcaseIcon, CapIcon, ProjectsIcon, BlogIcon, PublicationIcon, SkillsIcon, ExternalIcon } from './icons';
 import { UnderlineLink, Logo } from './ui';
 import SectionDock from './SectionDock';
@@ -206,17 +207,18 @@ function TimelineJob({ job, i }: { job: Job; i: number }) {
   );
 }
 
-function TimelineEdu({ ed, i }: { ed: Education; i: number }) {
+function EduItem({ ed, i }: { ed: Education; i: number }) {
   const visible = useContext(SectionVisible);
   return (
-    <TimelineItem i={i} visible={visible}>
-      <div className="flex gap-3 items-start">
-        <Logo src={ed.logo} alt={`${ed.school} logo`} />
-        <div className="flex-1 min-w-0">
-          <TimelineHeading title={ed.degree} subtitle={ed.school} dates={ed.dates} />
-        </div>
+    <div
+      className={`reveal-item flex gap-3 items-start ${visible ? 'is-visible' : ''}`}
+      style={{ '--reveal-delay': `${(i * 0.1).toFixed(2)}s` } as CSSProperties}
+    >
+      <Logo src={ed.logo} alt={`${ed.school} logo`} />
+      <div className="flex-1 min-w-0">
+        <TimelineHeading title={ed.degree} subtitle={ed.school} dates={ed.dates} />
       </div>
-    </TimelineItem>
+    </div>
   );
 }
 
@@ -298,6 +300,7 @@ function SectionHeading({ icon, children }: { icon: ReactNode; children: ReactNo
 
 export default function Portfolio() {
   const [loaded, setLoaded] = useState(false);
+  const scholar = scholarUrl();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setLoaded(true));
@@ -312,13 +315,13 @@ export default function Portfolio() {
 
       <aside id="contact" className="min-w-0 m-4 p-[32px_24px] flex flex-col items-center justify-center text-center bg-card rounded-2xl shadow-[0_1px_2px_rgba(0,0,0,0.15),0_4px_10px_2px_rgba(0,0,0,0.08)] scroll-mt-6 min-[860px]:sticky min-[860px]:top-6 min-[860px]:self-start min-[860px]:m-[24px_12px_24px_24px] min-[860px]:p-[48px_32px] min-[860px]:justify-start min-[860px]:h-[calc(100vh-48px)] min-[860px]:overflow-y-auto">
         <div className="w-[148px] h-[148px] flex-none rounded-full overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.25)] mb-6 relative">
-          <Image src="/assets/headshot.jpg" loading="eager" alt="Rudraksh Nanavaty" fill className="object-cover" sizes="148px" />
+          <Image src={site.image} loading="eager" alt={site.name} fill className="object-cover" sizes="148px" />
         </div>
 
-        <h1 className="font-serif text-fs-30 font-normal m-0 mb-2 text-text tracking-[-0.02em]">Rudraksh Nanavaty</h1>
-        <p className="text-fs-15.5 text-text2 m-0 mb-[18px] font-medium">Software Engineer</p>
+        <h1 className="font-serif text-fs-30 font-normal m-0 mb-2 text-text tracking-[-0.02em]">{site.name}</h1>
+        <p className="text-fs-15.5 text-text2 m-0 mb-[18px] font-medium">{site.jobTitle}</p>
         <p className="text-fs-14.5 leading-[1.65] text-text2 m-0 mb-[30px] max-w-[240px]">
-          1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines
+          {site.tagline}
         </p>
 
         <div
@@ -329,42 +332,44 @@ export default function Portfolio() {
             transition: 'opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s'
           }}
         >
-          <a href="mailto:rudrakshnanavaty@gmail.com" className="group flex items-center gap-2.5 text-fs-14 text-text">
+          <a href={`mailto:${site.email}`} className="group flex items-center gap-2.5 text-fs-14 text-text">
             <MailIcon />
-            <UnderlineLink>rudrakshnanavaty@gmail.com</UnderlineLink>
+            <UnderlineLink>{site.email}</UnderlineLink>
           </a>
-          <a href="tel:+19843822116" className="group flex items-center gap-2.5 text-fs-14 text-text">
+          <a href={`tel:${site.phone}`} className="group flex items-center gap-2.5 text-fs-14 text-text">
             <PhoneIcon />
-            <UnderlineLink>+1 (984) 382-2116</UnderlineLink>
+            <UnderlineLink>{site.phoneDisplay}</UnderlineLink>
           </a>
           <div className="flex items-center gap-2.5 text-fs-14 text-text">
             <PinIcon />
-            <span>Raleigh, NC, USA</span>
+            <span>{site.location.display}</span>
           </div>
         </div>
 
-        <div className="flex justify-between w-full max-w-[240px] mb-[26px]">
-          <a href="https://github.com/RudrakshNanavaty" target="_blank" rel="noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]">
+        <div className={`flex w-full max-w-[240px] mb-[26px] ${scholar ? 'justify-between' : 'justify-center gap-5'}`}>
+          <a href={site.profiles.github} target="_blank" rel="me noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]" aria-label="GitHub">
             <GithubIcon />
           </a>
-          <a href="https://linkedin.com/in/RudrakshNanavaty" target="_blank" rel="noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]">
+          <a href={site.profiles.linkedin} target="_blank" rel="me noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]" aria-label="LinkedIn">
             <LinkedinIcon />
           </a>
-          <a href="https://medium.com/@rudrakshnanavaty" target="_blank" rel="noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]">
+          <a href={site.profiles.medium} target="_blank" rel="me noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]" aria-label="Medium">
             <MediumIcon />
           </a>
-          <a href="https://scholar.google.com/citations?user=" target="_blank" rel="noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]">
-            <ScholarIcon />
-          </a>
+          {scholar ? (
+            <a href={scholar} target="_blank" rel="me noopener" className="w-[38px] h-[38px] flex items-center justify-center bg-pill rounded-full transition-transform hover:scale-[1.12]" aria-label="Google Scholar">
+              <ScholarIcon />
+            </a>
+          ) : null}
         </div>
 
         <a
-          href="/assets/Rudraksh-Nanavaty-Resume.pdf"
+          href={site.resume}
           download
           className="flex items-center justify-center gap-[9px] w-full max-w-[240px] bg-accent text-accent-text font-bold text-fs-14.5 px-4 py-[13px] rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.2)] transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_4px_14px_rgba(0,0,0,0.28)]"
         >
           <DownloadIcon />
-          Download Resume
+          Resume
         </a>
 
         <div id="skills-desktop" className="hidden min-[860px]:block w-full mt-12 text-left scroll-mt-6">
@@ -374,7 +379,17 @@ export default function Portfolio() {
         </div>
       </aside>
 
-      <main className="min-w-0 p-[16px_16px_140px] flex flex-col gap-10 min-[860px]:p-[72px_48px_120px_36px] min-[860px]:gap-14">
+      <main className="min-w-0 p-[16px_16px_140px] flex flex-col gap-10 min-[860px]:p-[72px_48px_120px_36px] min-[860px]:gap-10">
+        <RevealSection id="education">
+          <SectionHeading icon={<CapIcon />}>Education</SectionHeading>
+          <div className="h-px bg-border mb-5" />
+          <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-6 min-[860px]:gap-10">
+            {education.map((ed, i) => (
+              <EduItem key={ed.school} ed={ed} i={i} />
+            ))}
+          </div>
+        </RevealSection>
+
         <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-10">
           <RevealSection id="experience">
             <SectionHeading icon={<BriefcaseIcon />}>Experience</SectionHeading>
@@ -386,19 +401,7 @@ export default function Portfolio() {
             </div>
           </RevealSection>
 
-          <RevealSection id="education" delay={0.18}>
-            <SectionHeading icon={<CapIcon />}>Education</SectionHeading>
-            <div className="h-px bg-border mb-7" />
-            <div className="timeline" style={{ '--tl-gap': '26px' } as CSSProperties}>
-              {education.map((ed, i) => (
-                <TimelineEdu key={ed.school} ed={ed} i={i} />
-              ))}
-            </div>
-          </RevealSection>
-        </div>
-
-        <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-10">
-          <RevealSection id="projects">
+          <RevealSection id="projects" delay={0.18}>
             <SectionHeading icon={<ProjectsIcon />}>Projects</SectionHeading>
             <div className="h-px bg-border mb-6" />
             <div className="flex flex-col gap-[18px]">
@@ -407,8 +410,10 @@ export default function Portfolio() {
               ))}
             </div>
           </RevealSection>
+        </div>
 
-          <RevealSection id="blogs" delay={0.18}>
+        <div className="grid grid-cols-1 min-[860px]:grid-cols-2 gap-10">
+          <RevealSection id="blogs">
             <SectionHeading icon={<BlogIcon />}>Blogs</SectionHeading>
             <div className="h-px bg-border mb-6" />
             <div className="flex flex-col gap-[18px]">
@@ -417,17 +422,17 @@ export default function Portfolio() {
               ))}
             </div>
           </RevealSection>
-        </div>
 
-        <RevealSection id="publications">
-          <SectionHeading icon={<PublicationIcon />}>Academic Publications</SectionHeading>
-          <div className="h-px bg-border mb-7" />
-          <div className="timeline timeline--text" style={{ '--tl-gap': '26px' } as CSSProperties}>
-            {publications.map((pub, i) => (
-              <PublicationItem key={pub.title} pub={pub} i={i} />
-            ))}
-          </div>
-        </RevealSection>
+          <RevealSection id="publications" delay={0.18}>
+            <SectionHeading icon={<PublicationIcon />}>Publications</SectionHeading>
+            <div className="h-px bg-border mb-5" />
+            <div className="timeline timeline--text" style={{ '--tl-gap': '20px' } as CSSProperties}>
+              {publications.map((pub, i) => (
+                <PublicationItem key={pub.title} pub={pub} i={i} />
+              ))}
+            </div>
+          </RevealSection>
+        </div>
 
         <RevealSection id="skills-mobile" className="block min-[860px]:hidden">
           <SectionHeading icon={<SkillsIcon />}>Skills</SectionHeading>

@@ -218,7 +218,7 @@ body {
   transform: translateY(0);
 }
 
-/* Bottom section dock — mobile: edge-aligned with content; desktop: centered */
+/* Bottom section dock — mobile: full width; desktop: bottom-right */
 .section-dock {
   opacity: 0;
   transform: translateY(18px) scale(0.96);
@@ -230,16 +230,6 @@ body {
 .section-dock.is-ready {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-@media (min-width: 860px) {
-  .section-dock {
-    transform: translate(-50%, 18px) scale(0.96);
-  }
-
-  .section-dock.is-ready {
-    transform: translate(-50%, 0) scale(1);
-  }
 }
 
 .section-dock-indicator {

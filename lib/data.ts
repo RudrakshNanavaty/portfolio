@@ -52,9 +52,9 @@ export const experience: Job[] = [
     dates: 'Sept 2025 – Feb 2026',
     logo: '/assets/firstpeak.webp',
     bullets: [
-      'Built Python backend services for a multi-channel conversational AI platform, optimizing async workflows to handle 50k+ concurrent requests.',
-      'Designed an agent-to-agent evaluation framework where judge agents orchestrate calls to other agents, cutting manual QA cycles by 70%.',
-      'Parallelized automated voice-agent testing across concurrent async Twilio calls, cutting regression runtime from 4 hours to 25 minutes.'
+      'Python async backend for multi-channel conversational AI. Scaled to 10k+ concurrent requests.',
+      'Voice Agent evaluation framework with LLM-as-a-judge, automating QA. 10x faster than manual testing.',
+      'Parallelized Twilio voice test suite.'
     ]
   },
   {
@@ -63,9 +63,10 @@ export const experience: Job[] = [
     dates: 'Mar 2024 – May 2025',
     logo: '/assets/new_engen.webp',
     bullets: [
-      'Migrated a JavaScript monolith into TypeScript + Python microservices, improving deployment frequency by 40% and cutting runtime errors by 25%.',
-      'Built Python GraphQL APIs powering custom client dashboards, sustaining 100ms average response times during 3x traffic spikes.',
-      'Implemented a fault-tolerant bulk emailing pipeline on RabbitMQ with idempotency and durable job processing, hitting 99.99% delivery success.'
+      'Migrated legacy JS monolith to modern TypeScript/Python services. +40% deploy frequency, -25% runtime bugs.',
+      'Achieved 6x faster API response times, compared to legacy code',
+      'Built Python GraphQL APIs with 100ms responses during 3x traffic peaks.',
+      'RabbitMQ bulk email pipeline with idempotency and durability; 99.99% success.'
     ]
   }
 ];
@@ -74,13 +75,13 @@ export const education: Education[] = [
   {
     degree: 'M.S. Computer Science',
     school: 'North Carolina State University',
-    dates: '2026 – Present',
+    dates: '2026 - Present',
     logo: '/assets/ncsu-logo.webp'
   },
   {
     degree: 'B.E. Computer Engineering',
     school: 'Pandit Deendayal Energy University, India',
-    dates: '2021 – 2025',
+    dates: '2021 - 2025',
     logo: '/assets/pdeu.webp'
   }
 ];
@@ -92,28 +93,38 @@ export const projects: Project[] = [
       'RL environment predicting post-earnings stock movement from earnings call transcripts and press releases; published an open-source dataset for reproducible benchmarking.',
     stack: ['Python', 'Gradio', 'Hugging Face', 'RL'],
     links: [
-      { label: 'Live demo', url: '#' },
-      { label: 'GitHub', url: '#' },
-      { label: 'Dataset', url: '#' }
+      { label: 'Live demo', url: 'https://huggingface.co/spaces/GalacticTriumvirate/Earning_lens' },
+      { label: 'Dataset', url: 'https://huggingface.co/datasets/RudrakshNanavaty/earnings-call-data' },
+      { label: 'GitHub', url: 'https://github.com/RudrakshNanavaty/earnings-lens' }
     ]
   },
   {
     name: 'ChatGPT Tokenizer',
-    description: 'Manual implementation of the Byte Pair Encoding algorithm used by OpenAI in GPT-4.',
+    description: 'Manual implementation of the Byte Pair Encoding (BPE) algorithm used by OpenAI in GPT-4.',
     stack: ['Next.js', 'React', 'TypeScript'],
     links: [
-      { label: 'Live demo', url: '#' },
-      { label: 'GitHub', url: '#' }
+      { label: 'Live demo', url: 'https://gpt-tokenizer-sable.vercel.app/' },
+      { label: 'GitHub', url: 'https://github.com/RudrakshNanavaty/gpt4-tokenizer' }
     ]
   },
   {
     name: 'NotebookLM',
     description:
-      'RAG chatbot for domain-specific Q&A, with end-to-end document ingestion and retrieval for long-form content.',
-    stack: ['Next.js', 'LangChain', 'Pinecone', 'PostgreSQL'],
+      'RAG chatbot for accurate, domain-specific question answering, with end-to-end document ingestion and retrieval workflows for long-form content.',
+    stack: ['Next.js', 'TypeScript', 'LangChain', 'Pinecone', 'PostgreSQL'],
     links: [
-      { label: 'Demo video', url: '#' },
-      { label: 'GitHub', url: '#' }
+      { label: 'Demo video', url: 'https://drive.google.com/file/d/171NtJdeRIPbnhvp1m23DMlyczIUOi7ZY/view' },
+      { label: 'GitHub', url: 'https://github.com/RudrakshNanavaty/notebook-lm' }
+    ]
+  },
+  {
+    name: 'Kanban App',
+    description:
+      'Full-stack Kanban application with authentication, task management, and end-to-end frontend–backend integration.',
+    stack: ['React', 'Node.js', 'Express', 'MongoDB'],
+    links: [
+      { label: 'GitHub: Front End', url: 'https://github.com/RudrakshNanavaty/Kanban_App_React' },
+      { label: 'GitHub: Back End', url: 'https://github.com/RudrakshNanavaty/Kanban_App_Node' }
     ]
   }
 ];
@@ -171,9 +182,28 @@ export const publications: Publication[] = [
 ];
 
 export const skillGroups: SkillGroup[] = [
-  { category: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'Go'] },
-  { category: 'Back End', items: ['REST APIs', 'GraphQL', 'Microservices'] },
-  { category: 'AI & LLMs', items: ['RAG', 'Vector Databases', 'Prompt Engineering'] },
-  { category: 'Data & Messaging', items: ['SQL & NoSQL Databases', 'Message Queues'] },
-  { category: 'Cloud & DevOps', items: ['Cloud Platforms', 'Containerization', 'CI/CD'] }
+  {
+    category: 'Languages',
+    items: ['Python', 'TypeScript', 'JavaScript', 'Go']
+  },
+  {
+    category: 'Back End',
+    items: ['FastAPI', 'Flask', 'ExpressJS', 'Node.js', 'REST APIs', 'GraphQL', 'Microservices', 'Gin']
+  },
+  {
+    category: 'Front End',
+    items: ['Next.js', 'React.js', 'Tailwind CSS', 'Redux Toolkit', 'Zustand', 'HTML/CSS']
+  },
+  {
+    category: 'AI & LLMs',
+    items: ['RAG', 'LangChain', 'Prompt Engineering', 'Vector Databases', 'Pinecone', 'Langfuse']
+  },
+  {
+    category: 'Data & Messaging',
+    items: ['SQL', 'NoSQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase', 'RabbitMQ', 'Database Design']
+  },
+  {
+    category: 'Cloud & DevOps',
+    items: ['AWS', 'GCP', 'Docker', 'NGINX', 'CI/CD Pipelines', 'Linux', 'Observability', 'Monitoring', 'Logging']
+  }
 ];
