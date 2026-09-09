@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 import { site } from '@/lib/site';
 
@@ -5,7 +7,14 @@ export const alt = `${site.name} — ${site.jobTitle}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const [regular, bold] = await Promise.all([
+    readFile(join(process.cwd(), 'public/fonts/SpaceMono-Regular.ttf')),
+    readFile(join(process.cwd(), 'public/fonts/SpaceMono-Bold.ttf'))
+  ]);
+
+  const location = `${site.location.locality}, ${site.location.region}`;
+
   return new ImageResponse(
     (
       <div
@@ -16,19 +25,16 @@ export default function OpenGraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '72px 80px',
-          background: 'linear-gradient(145deg, #191919 0%, #2a2a28 55%, #1e2430 100%)',
-          color: '#f5f4f1',
-          fontFamily: 'Georgia, "Times New Roman", serif'
+          background: '#191919',
+          color: '#f7f6f4',
+          fontFamily: '"Space Mono"'
         }}
       >
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
-            gap: 12,
             fontSize: 28,
-            fontFamily: 'system-ui, sans-serif',
-            color: '#a8b4c8',
+            color: '#a8a7a4',
             letterSpacing: '0.04em',
             textTransform: 'uppercase'
           }}
@@ -37,48 +43,39 @@ export default function OpenGraphImage() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-          <div style={{ fontSize: 72, lineHeight: 1.05, letterSpacing: '-0.03em', fontWeight: 400 }}>
+          <div
+            style={{
+              fontSize: 64,
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+              fontWeight: 700
+            }}
+          >
             {site.name}
           </div>
-          <div
-            style={{
-              fontSize: 34,
-              fontFamily: 'system-ui, sans-serif',
-              color: '#c5c8ce',
-              fontWeight: 500
-            }}
-          >
-            {site.jobTitle}
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 10,
-              marginTop: 8,
-              fontSize: 26,
-              fontFamily: 'system-ui, sans-serif',
-              color: '#8b9bb3'
-            }}
-          >
-            {site.location.locality}, {site.location.region}
-          </div>
+          <div style={{ fontSize: 32, color: '#c9c8c4', fontWeight: 400 }}>{site.jobTitle}</div>
+          <div style={{ display: 'flex', marginTop: 8, fontSize: 24, color: '#a8a7a4' }}>{location}</div>
         </div>
 
         <div
           style={{
             display: 'flex',
             fontSize: 22,
-            fontFamily: 'system-ui, sans-serif',
-            color: '#7a8494',
+            color: '#c9c8c4',
             maxWidth: 900,
             lineHeight: 1.4
           }}
         >
-          1.5+ years of building back-end systems for AI platforms, APIs, and data pipelines
+          {site.tagline}
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: 'Space Mono', data: regular, weight: 400, style: 'normal' },
+        { name: 'Space Mono', data: bold, weight: 700, style: 'normal' }
+      ]
+    }
   );
 }
