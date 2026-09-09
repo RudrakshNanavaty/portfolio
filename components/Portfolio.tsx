@@ -118,7 +118,7 @@ function SkillGroupBlock({ centered, animate }: { centered: boolean; animate: bo
               return (
                 <span
                   key={label}
-                  className={`skill-pill text-fs-12 px-[13px] py-1.5 bg-pill rounded-full text-text ${animate ? 'is-visible' : ''}`}
+                  className={`skill-pill font-sans text-fs-12 px-[13px] py-1.5 bg-pill rounded-full text-text ${animate ? 'is-visible' : ''}`}
                   style={{ '--pill-delay': `${(i * 0.08).toFixed(2)}s` } as CSSProperties}
                 >
                   {label}
@@ -172,7 +172,7 @@ function TimelineHeading({
 }) {
   return (
     <div className="@container min-w-0">
-      <span className="block text-fs-17 font-bold text-text wrap-break-word">{title}</span>
+      <span className="block text-fs-16 font-bold text-text wrap-break-word">{title}</span>
       <div className="flex flex-col gap-px @[22rem]:flex-row @[22rem]:flex-wrap @[22rem]:items-baseline @[22rem]:justify-between @[22rem]:gap-x-3 @[22rem]:gap-y-0.5">
         <p className={`m-0 text-fs-14.5 text-text2 wrap-break-word @[22rem]:min-w-[min(100%,12rem)] @[22rem]:flex-1 ${subtitleClassName ?? ''}`.trim()}>
           {subtitle}
@@ -197,7 +197,7 @@ function TimelineJob({ job, i }: { job: Job; i: number }) {
         {job.bullets.map((b, bi) => (
           <li
             key={bi}
-            className="relative pl-[14px] text-fs-14.5 leading-[1.6] text-text2 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-text3/70"
+            className="relative pl-[14px] font-sans text-fs-14.5 leading-[1.6] text-text2 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-text3/70"
           >
             {b}
           </li>
@@ -229,11 +229,11 @@ function ProjectCard({ proj, i }: { proj: Project; i: number }) {
       className={`reveal-item lift bg-card2 rounded-xl p-[22px] flex flex-col gap-[11px] shadow-[0_1px_2px_rgba(0,0,0,0.1)] ${visible ? 'is-visible' : ''}`}
       style={{ '--reveal-delay': `${(i * 0.1).toFixed(2)}s` } as CSSProperties}
     >
-      <h3 className="text-fs-17 font-bold m-0 text-text">{proj.name}</h3>
-      <p className="m-0 text-fs-14.5 leading-[1.6] text-text2 flex-1">{proj.description}</p>
+      <h3 className="text-fs-16 font-bold m-0 text-text">{proj.name}</h3>
+      <p className="m-0 font-sans text-fs-14.5 leading-[1.6] text-text2 flex-1">{proj.description}</p>
       <div className="flex flex-wrap gap-[7px]">
         {proj.stack.map((s) => (
-          <span key={s} className="text-fs-12 px-3 py-[5px] bg-pill rounded-full text-text">
+          <span key={s} className="font-sans text-fs-12 px-3 py-[5px] bg-pill rounded-full text-text">
             {s}
           </span>
         ))}
@@ -262,7 +262,7 @@ function BlogItem({ post, i }: { post: Blog; i: number }) {
     >
       <div className="w-24 flex-none self-stretch bg-cover bg-center" style={{ backgroundImage: `url(${post.image})` }} />
       <div className="flex flex-col gap-1.5 min-w-0 py-3 pr-3">
-        <h3 className="text-fs-16 font-bold m-0 text-text leading-[1.35]">{post.title}</h3>
+        <h3 className="text-fs-15 font-bold m-0 text-text leading-[1.35]">{post.title}</h3>
         <p className="m-0 text-fs-14 text-text2">{post.description}</p>
         <span className="flex items-center gap-1 text-fs-13 text-accent mt-0.5">
           <UnderlineLink>Read on Medium</UnderlineLink>
@@ -277,7 +277,7 @@ function PublicationItem({ pub, i }: { pub: Publication; i: number }) {
   const visible = useContext(SectionVisible);
   return (
     <TimelineItem i={i} visible={visible}>
-      <h3 className="text-fs-16 font-bold m-0 mb-1.5 leading-[1.4] text-text break-words">{pub.title}</h3>
+      <h3 className="text-fs-15 font-bold m-0 mb-1.5 leading-[1.4] text-text break-words">{pub.title}</h3>
       <p className="m-0 mb-2 text-fs-14 text-text2 break-words">
         {pub.authors} — {pub.venue}, {pub.year}
       </p>
@@ -366,14 +366,14 @@ export default function Portfolio() {
         <a
           href={site.resume}
           download
-          className="flex items-center justify-center gap-[9px] w-full max-w-[240px] bg-accent text-accent-text font-bold text-fs-14.5 px-4 py-[13px] rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.2)] transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_4px_14px_rgba(0,0,0,0.28)]"
+          className="flex items-center justify-center gap-[9px] w-full max-w-[240px] bg-accent text-accent-text font-bold text-fs-14 px-4 py-[13px] rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.2)] transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-[0_4px_14px_rgba(0,0,0,0.28)]"
         >
           <DownloadIcon />
           Resume
         </a>
 
         <div id="skills-desktop" className="hidden min-[860px]:block w-full mt-12 text-left scroll-mt-6">
-          <h2 className="text-fs-15 font-bold m-0 mb-3 text-text text-center uppercase tracking-[0.6px]">Skills</h2>
+          <h2 className="text-fs-14 font-bold m-0 mb-3 text-text text-center uppercase tracking-[0.6px]">Skills</h2>
           <div className="h-px bg-border mb-[18px]" />
           <SkillGroupBlock centered animate={loaded} />
         </div>

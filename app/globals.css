@@ -18,8 +18,8 @@
   --color-accent-text: var(--accent-text);
   --font-sans:
     var(--font-instrument-sans), "Instrument Sans", system-ui, sans-serif;
-  --font-serif:
-    var(--font-instrument-serif), "Instrument Serif", ui-serif, Georgia, serif;
+  --font-serif: var(--font-space-mono), "Space Mono", ui-monospace, monospace;
+  --font-mono: var(--font-space-mono), "Space Mono", ui-monospace, monospace;
 
   /* Typography scale — change --fs-scale on :root to resize all text */
   --text-fs-8: calc(8px * var(--fs-scale));

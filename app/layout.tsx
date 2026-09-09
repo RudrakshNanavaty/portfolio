@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { Instrument_Sans, Instrument_Serif } from 'next/font/google';
+import { Instrument_Sans, Space_Mono } from 'next/font/google';
 import { PostHogProvider } from '@/components/providers/posthog-provider';
 import { education, experience, publications, skillGroups } from '@/lib/data';
 import { sameAs, site } from '@/lib/site';
 import './globals.css';
 
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
+  display: 'swap'
+});
+
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-instrument-sans',
-  display: 'swap'
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-instrument-serif',
   display: 'swap'
 });
 
@@ -130,12 +130,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const jsonLd = buildJsonLd();
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${instrumentSans.variable} ${instrumentSerif.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${spaceMono.variable} ${instrumentSans.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body className="font-sans">
+      <body className="font-mono">
         <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
