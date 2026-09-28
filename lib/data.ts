@@ -118,13 +118,12 @@ export const projects: Project[] = [
     ]
   },
   {
-    name: 'Kanban App',
+    name: 'HTTP Server from Scratch',
     description:
-      'Full-stack Kanban application with authentication, task management, and end-to-end frontend–backend integration.',
-    stack: ['React', 'Node.js', 'Express', 'MongoDB'],
+      'Built an HTTP server from scratch using low-level TCP sockets, including request parsing and response generation; implemented multiprocessing to serve concurrent client requests efficiently.',
+    stack: ['C++', 'TCP/IP', 'Sockets', 'Multiprocessing'],
     links: [
-      { label: 'GitHub: Front End', url: 'https://github.com/RudrakshNanavaty/Kanban_App_React' },
-      { label: 'GitHub: Back End', url: 'https://github.com/RudrakshNanavaty/Kanban_App_Node' }
+      { label: 'GitHub', url: 'https://github.com/RudrakshNanavaty/c-web-server' }
     ]
   }
 ];
@@ -184,7 +183,7 @@ export const publications: Publication[] = [
 export const skillGroups: SkillGroup[] = [
   {
     category: 'Languages',
-    items: ['Python', 'TypeScript', 'JavaScript', 'Go']
+    items: ['Python', 'TypeScript', 'JavaScript', 'Go', 'C', 'C++']
   },
   {
     category: 'Back End',

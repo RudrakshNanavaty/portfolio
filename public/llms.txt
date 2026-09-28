@@ -18,7 +18,7 @@
 - EarningsLens — RL environment predicting post-earnings stock movement from call transcripts; open-source dataset
 - ChatGPT Tokenizer — Byte Pair Encoding implementation used by GPT-4 (Next.js/TypeScript)
 - NotebookLM — RAG chatbot with document ingestion and retrieval (LangChain, Pinecone, PostgreSQL)
-- Kanban App — full-stack Kanban with auth and task management (React, Node.js, Express, MongoDB)
+- HTTP Server from Scratch — C++ HTTP server built with low-level TCP sockets and multiprocessing — https://github.com/RudrakshNanavaty/c-web-server
 
 ## Publications
 - The Potential of Big Data and Machine Learning for Ground Water Quality Assessment and Prediction (2025) — https://doi.org/10.1007/s11831-024-10156-w
@@ -26,7 +26,7 @@
 - A Comparative and Systematic Study of Machine Learning (ML) Approaches for Particulate Matter (PM) Prediction (2023) — https://doi.org/10.1007/s11831-023-09994-x
 
 ## Skills
-- Languages: Python, TypeScript, JavaScript, Go
+- Languages: Python, TypeScript, JavaScript, Go, C, C++
 - Back End: FastAPI, Flask, ExpressJS, Node.js, REST APIs, GraphQL, Microservices, Gin
 - Front End: Next.js, React.js, Tailwind CSS, Redux Toolkit, Zustand
 - AI & LLMs: RAG, LangChain, Prompt Engineering, Vector Databases, Pinecone, Langfuse
